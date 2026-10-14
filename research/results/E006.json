@@ -9,16 +9,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "shared quota keys capped admitted calls at the allowance regardless of views; independent resources scaled; a 429 stopped the key",
   "command": "awrm experiments run E006",
-  "startedAt": "2026-10-14T07:07:09.538Z",
-  "endedAt": "2026-10-14T07:07:11.131Z",
-  "durationMs": 1593,
+  "startedAt": "2026-10-14T07:14:48.678Z",
+  "endedAt": "2026-10-14T07:14:50.396Z",
+  "durationMs": 1718,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -96,24 +96,24 @@
             "quotaKey": "sim:account-1",
             "concurrency": 2,
             "rate": null,
-            "meanOccupiedMs": 7.325278000000253,
-            "boundPerSec": 273.02718067490827
+            "meanOccupiedMs": 7.451175999998668,
+            "boundPerSec": 268.41400605761527
           },
           {
             "laneId": "v2",
             "quotaKey": "sim:account-1",
             "concurrency": 2,
             "rate": null,
-            "meanOccupiedMs": 6.821343999999954,
-            "boundPerSec": 293.1973523106317
+            "meanOccupiedMs": 6.854292000001806,
+            "boundPerSec": 291.78797751824305
           },
           {
             "laneId": "v3",
             "quotaKey": "sim:account-1",
             "concurrency": 2,
             "rate": null,
-            "meanOccupiedMs": 6.631192000000738,
-            "boundPerSec": 301.6048999938137
+            "meanOccupiedMs": 6.765381000001071,
+            "boundPerSec": 295.6226707704538
           },
           {
             "laneId": "v4",
@@ -158,7 +158,21 @@
       "maxInFlight": 4
     }
   },
-  "marks": [],
+  "marks": [
+    "sha256:5984e1381a727e9c14069d9ac3cb9270d4a43600cf427a4c332e8424ad80f21d",
+    "sha256:58f24e116d3fccbf63d91097a62f4466d86c6e8c7bdfa25a47d4857729a1f5ce",
+    "sha256:0560f72196f991ab3b28ae3a0bbe91aa6545e9944fac81c4e59bf9377968e079",
+    "sha256:3316ada69ebcca69981cd272084c224ac96c909cfd5c18b7ec8a7ec950c15ed3",
+    "sha256:3febf7e4127a70096c4387551f4402e19a2113bddf30a290cd1bc247dfc6914b",
+    "sha256:425de56f654bdb631e00a904d71284c07953979f191e731d480182ceb22cb1fa",
+    "sha256:104f92ae20ba23dbfebdc5ec01c8f0291dc91dde9b9f41c8bd06affe7d96a292",
+    "sha256:a03ec9da0fafb9abaab126b88c4739b0b3eaccd0b9ebb0f190f3ed323e98ba11",
+    "sha256:76b423132ffc6a41b8450eb725f189e152a436738833839adaf8dfcb940e2328",
+    "sha256:af3df06a6cc8143925e7e79446b88bc01f5a712d7a97d2f5cd87f7ad9f2942c3",
+    "sha256:145d10ec2dda7e9175655b093aa02230982c6b5e014deabfa18e531ba981b85a",
+    "sha256:e569b93071a7cd7d067e10d5b284b47c3caa9163653b1ceb9c7cacfadc49926c",
+    "sha256:d27a44258d6ea1fd672428dc4db188806ad5501854f61c9f44850fe6ef493391"
+  ],
   "blocked": [],
   "counterexamples": [],
   "notes": [],

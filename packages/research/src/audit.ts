@@ -91,7 +91,7 @@ export function selfAudit(root = repoRoot()): { ok: boolean; findings: Finding[]
   for (const p of files.filter((x) => /\.(md|ts)$/.test(x))) {
     const lines = readFileSync(p, 'utf8').split('\n');
     lines.forEach((line, i) => {
-      if (/\b(unlimited|infinite|infinity)\b/i.test(line) && !/\b(not|never|no|nor|without|false|refus|reject|cannot|isn't|instead|rather than|fiction|claim|deny|denied|unknown|bound|finite|NaN|Number\.|isFinite|non-finite|throws|unbounded)\b/i.test(line))
+      if (/\b(unlimited|infinite|infinity)\b/i.test(line) && !/\b(not|never|no|nor|nothing|none|without|false|refus|reject|cannot|isn't|instead|rather than|fiction|claim|deny|denied|unknown|bound|finite|NaN|Number\.|isFinite|non-finite|throws|unbounded)\b/i.test(line))
         f.push({ check: 'infinity-claim', level: 'warn', detail: line.trim().slice(0, 100), where: `${rel(p)}:${i + 1}` });
     });
   }

@@ -8,16 +8,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "after SIGKILL, local work resumed exactly once, ambiguous external-like work was failed rather than re-sent, Keeps and Marks replayed intact",
   "command": "awrm experiments run E011",
-  "startedAt": "2026-10-14T07:07:13.104Z",
-  "endedAt": "2026-10-14T07:07:13.703Z",
-  "durationMs": 599,
+  "startedAt": "2026-10-14T07:14:52.485Z",
+  "endedAt": "2026-10-14T07:14:53.080Z",
+  "durationMs": 594,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -49,23 +49,15 @@
     },
     {
       "name": "side-effect-free run requeued",
-      "expected": [
-        "run_QJ4W7JSJSBDEVKYR"
-      ],
-      "observed": [
-        "run_QJ4W7JSJSBDEVKYR"
-      ],
+      "expected": true,
+      "observed": true,
       "pass": true,
       "deterministic": true
     },
     {
       "name": "unknown-side-effect run failed as ambiguous, not re-sent",
-      "expected": [
-        "run_Y1CDCAVB7163TSEW"
-      ],
-      "observed": [
-        "run_Y1CDCAVB7163TSEW"
-      ],
+      "expected": true,
+      "observed": true,
       "pass": true,
       "deterministic": true
     },
@@ -174,29 +166,29 @@
   "metrics": {
     "recoverReport": {
       "requeued": [
-        "run_QJ4W7JSJSBDEVKYR"
+        "run_MZWCGEPAZRNFH8XF"
       ],
       "ambiguous": [
-        "run_Y1CDCAVB7163TSEW"
+        "run_5RZZ1ARN25WCN9C3"
       ],
       "pendingQueued": []
     },
     "marks": 4,
     "runs": [
       {
-        "runId": "run_ES980TM9P65CQY6S",
+        "runId": "run_0M887WG1TKVCZV0V",
         "state": "completed",
         "turns": 1,
         "error": null
       },
       {
-        "runId": "run_QJ4W7JSJSBDEVKYR",
+        "runId": "run_MZWCGEPAZRNFH8XF",
         "state": "completed",
         "turns": 2,
         "error": null
       },
       {
-        "runId": "run_Y1CDCAVB7163TSEW",
+        "runId": "run_5RZZ1ARN25WCN9C3",
         "state": "failed",
         "turns": 1,
         "error": "ambiguous-side-effect"
@@ -204,13 +196,13 @@
     ]
   },
   "marks": [
-    "sha256:c8874c73605cdd4be60687583843b69fb2999d28b300576fa4ed64a0be2c30ab",
-    "sha256:c6df27fb4b2c7b92c35c97c872e75eb785ca19f08a2a3083f0fb8697a24a47cf",
-    "sha256:6f7a76e92f66bd84c64bdc7636548858060dec000d299fd575c0a9c27d72f099",
-    "sha256:b0ed27e814d7cfe0b202a48a15108384c5cd7dcbf566e2848ccfff7de21d8773"
+    "sha256:dd36d1c07aa3c65079de43433e7046d084d81bf11aad47d43522a9af81ffe47f",
+    "sha256:cc82d59b0c1abfd723a19cdb64eac59cb64a9950af5a956b7523da5131c48e3f",
+    "sha256:395c7af5a078caa1c45a02b4a31b604b7bc4fbe37ec833c0f23fb5b9b3abf775",
+    "sha256:c0c49b9b2ae11fb6ab075268e9248cf539054c6cc97b13e235d4fedc8ce81a6f"
   ],
   "blocked": [],
   "counterexamples": [],
   "notes": [],
-  "deterministicDigest": "sha256:7a27dc316f8ff37198c40b5ee1f19d6bccf1e91e6be6829ca2cabe54b9a0c010"
+  "deterministicDigest": "sha256:3602bb4aee36dab90868a02082e966d8b21618334a7df8bb212d0851d40bee76"
 }

@@ -9,16 +9,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "cited data crossed from A to B; every credential/authority transfer attempt failed; B had no access to content it was not passed",
   "command": "awrm experiments run E007",
-  "startedAt": "2026-10-14T07:07:11.152Z",
-  "endedAt": "2026-10-14T07:07:11.162Z",
-  "durationMs": 10,
+  "startedAt": "2026-10-14T07:14:50.426Z",
+  "endedAt": "2026-10-14T07:14:50.435Z",
+  "durationMs": 9,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -159,16 +159,16 @@
     }
   ],
   "metrics": {
-    "passId": "pass_FZS0AVZ9SWX4Q9G3",
-    "passDigest": "sha256:47bfbbda4cbc491a27f222168e3485573197728ffa849a45f56de5bdb8251d22",
+    "passId": "pass_6BBQC025PCS30QTB",
+    "passDigest": "sha256:4154298e94cb884ab6553f6f7d743a9e9d23b3935bf9bbd9eb1309cc334325bf",
     "promptChars": 95
   },
   "marks": [
-    "sha256:7eb04d68f213a57dd424629302a3ad2ea5538dc114111ee7e7c5403406c64880",
-    "sha256:5ad3d3b92d3834b89c3e0662958c0e7d20d09fc2736ecb52a9b02a747b22d6a0",
-    "sha256:b6f8546f71363527782fcdf1d302e3fe6f724c2dbccda0d4180cfe5d87c3c2b5",
-    "sha256:85e4f99e50453e832bb01b7e1b280535bc404aefa8e7478368b7786976597a8e",
-    "sha256:26b694881d670c7e7fba48d56b6a9c8a762cb1b19d864f7897a4219776efa1a9"
+    "sha256:b55b6cdea34f43feba4601348dbf774ddb50af8c5676f40375f729ef8fe20eac",
+    "sha256:493fd04a1d1ae2db7352c2d7cfc19b8533ebdb4211157eb67abfb7531d82a11f",
+    "sha256:cbc47fb9382eab45fa31102ee4c0994feefd3fed062be96f7b5a5b59418002f4",
+    "sha256:12d9c984b8ad6f3afd087cec629dd95fdd2add7ea962920f4a3609d9105cb232",
+    "sha256:183cafa2deded7f4f225cc751a390f4cf86af38827b2a2ca67b8725605b2c4c2"
   ],
   "blocked": [],
   "counterexamples": [],

@@ -9,8 +9,8 @@
   "verdict": "OBSERVED",
   "verdictReason": "every external path is denied by deterministic, evidence-backed Gate decisions; API paths become permissible only with owner consent + credential (policy reading recorded, not a legal ruling)",
   "command": "awrm experiments run E004",
-  "startedAt": "2026-10-14T07:07:01.911Z",
-  "endedAt": "2026-10-14T07:07:01.917Z",
+  "startedAt": "2026-10-14T07:14:40.600Z",
+  "endedAt": "2026-10-14T07:14:40.607Z",
   "durationMs": 6,
   "environment": {
     "node": "v22.22.0",
@@ -18,7 +18,7 @@
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -356,11 +356,11 @@
     ]
   },
   "marks": [
-    "sha256:db294cbfe7ec9bd8bee0bdef5ec2d513e7801e3a8726c1ff8a0dcb975b7a8956",
-    "sha256:fdd42251d5fee8464b8fac5a9f2baaa29e90e13bd841072ce78fa1bb7e98badb",
-    "sha256:ec744f45ef4b27df933eb2de65272385f0b0a1ef82ca4578e95f9e1bebc9d158",
-    "sha256:eb6471548828baac722ad0c0aa1d8590f174cdb77b163dc19847ad25042fd87b",
-    "sha256:e82b8f5d01bc5f1c6fbb5666bfe54ff8a6629a150d82d622df0f4aa61b1d2298"
+    "sha256:6fcaec687d2f0b6643d187f1f497d4959311df3d849d9d75154f9d70b09636f3",
+    "sha256:b22e5d898937faf49379e80db75274d728010ed841b07c96b750a9ba3a16b6ad",
+    "sha256:e88a54d0244ac88f8af60bbaffeb025dbcd7421a28bc0a6bf0f03f3525582871",
+    "sha256:71f76f082cf20e2e2d2ebf0c0b57458037c476e00c94336debd19f940bc7013a",
+    "sha256:1c1982a0df8566d013e423801be6eb41e73be7c3596444795d991dae432f9b68"
   ],
   "blocked": [
     {

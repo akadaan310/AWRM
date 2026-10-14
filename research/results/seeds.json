@@ -16,6 +16,7 @@
       "rejection": null,
       "result": {
         "relativeImprovement": 0,
+        "absoluteChange": 0,
         "baseline": 0.5,
         "candidate": 0.5,
         "guard": {
@@ -28,7 +29,7 @@
     },
     "preregistration": {
       "digest": "sha256:62d22268b24c57e67a98bd532613fc6f5384a051d6b2c5266682808cbea13661",
-      "at": "2026-10-14T07:07:13.726Z",
+      "at": "2026-10-14T07:14:53.110Z",
       "body": {
         "seedId": "seed_001",
         "title": "Strict integer parsing",
@@ -80,6 +81,7 @@
       "rejection": null,
       "result": {
         "relativeImprovement": 0.75,
+        "absoluteChange": 0.428571,
         "baseline": 0.5714285714285714,
         "candidate": 1,
         "guard": {
@@ -92,7 +94,7 @@
     },
     "preregistration": {
       "digest": "sha256:7055cf1dc6309db8757c9c1515d0e217fa1b1adffc5d12cb9637b7f65f003dfe",
-      "at": "2026-10-14T07:07:13.736Z",
+      "at": "2026-10-14T07:14:53.120Z",
       "body": {
         "seedId": "seed_002",
         "title": "Redaction coverage for more token formats",
@@ -186,7 +188,8 @@
       "preregistrationDigest": "sha256:65ff6109897ddb0fd4313feaedbbd5d8344f6243ec25cc16b0b945e7f52af2f4",
       "rejection": null,
       "result": {
-        "relativeImprovement": 499999999999.9999,
+        "relativeImprovement": null,
+        "absoluteChange": 500,
         "baseline": 0,
         "candidate": 500,
         "guard": {
@@ -199,7 +202,7 @@
     },
     "preregistration": {
       "digest": "sha256:65ff6109897ddb0fd4313feaedbbd5d8344f6243ec25cc16b0b945e7f52af2f4",
-      "at": "2026-10-14T07:07:13.740Z",
+      "at": "2026-10-14T07:14:53.124Z",
       "body": {
         "seedId": "seed_003",
         "title": "Property tests for canonical JSON",
@@ -240,20 +243,21 @@
       "preregistrationDigest": "sha256:dfa7ee10d4a95d9858cffb3e1e568873d8327df1c96d3f7f5b9403bd8cee9283",
       "rejection": null,
       "result": {
-        "relativeImprovement": 2.2526,
-        "baseline": 101.629,
-        "candidate": 330.562,
+        "relativeImprovement": 2.3794,
+        "absoluteChange": 180.032,
+        "baseline": 75.663,
+        "candidate": 255.695,
         "guard": {
           "name": "8 lanes give < 15% over 4 lanes on this machine (saturation)",
           "ok": true,
-          "detail": "4→8 lanes: 330.562 → 287.289/s"
+          "detail": "4→8 lanes: 231.502 → 255.695/s"
         },
         "metric": "throughput (DMU/s) at the recommended lane count vs 1 lane"
       }
     },
     "preregistration": {
       "digest": "sha256:dfa7ee10d4a95d9858cffb3e1e568873d8327df1c96d3f7f5b9403bd8cee9283",
-      "at": "2026-10-14T07:07:13.749Z",
+      "at": "2026-10-14T07:14:53.139Z",
       "body": {
         "seedId": "seed_004",
         "title": "Lane count matching cores",
@@ -278,30 +282,30 @@
       "points": [
         {
           "lanes": 1,
-          "tput": 101.629,
-          "p95": 11.507,
-          "cpu": 0.484
+          "tput": 75.663,
+          "p95": 19.147,
+          "cpu": 0.396
         },
         {
           "lanes": 2,
-          "tput": 258.359,
-          "p95": 12.049,
-          "cpu": 0.597
+          "tput": 174.706,
+          "p95": 18.851,
+          "cpu": 0.628
         },
         {
           "lanes": 4,
-          "tput": 330.562,
-          "p95": 20.352,
-          "cpu": 0.863
+          "tput": 231.502,
+          "p95": 28.865,
+          "cpu": 0.861
         },
         {
           "lanes": 8,
-          "tput": 287.289,
-          "p95": 45.316,
+          "tput": 255.695,
+          "p95": 52.716,
           "cpu": 0.941
         }
       ],
-      "recommendedLanes": 4
+      "recommendedLanes": 8
     },
     "violations": []
   },
@@ -324,6 +328,7 @@
       "rejection": null,
       "result": {
         "relativeImprovement": 0,
+        "absoluteChange": 0,
         "baseline": 1,
         "candidate": 1,
         "guard": {
@@ -336,7 +341,7 @@
     },
     "preregistration": {
       "digest": "sha256:b7d7925f81efef352bc43a63bfb15ab0a240491ad66fab7703c414e263596f8d",
-      "at": "2026-10-14T07:07:14.770Z",
+      "at": "2026-10-14T07:14:54.488Z",
       "body": {
         "seedId": "seed_005",
         "title": "Smaller context budget for summaries",
@@ -397,9 +402,10 @@
       "preregistrationDigest": "sha256:ad021a34a35eb56d79cf3972e84e26107b962a8ac68877f044417416c95b3503",
       "rejection": null,
       "result": {
-        "relativeImprovement": 0.8761,
-        "baseline": 51.95229299999846,
-        "candidate": 6.438570000002073,
+        "relativeImprovement": 0.8755,
+        "absoluteChange": 45.610328,
+        "baseline": 52.09596600000077,
+        "candidate": 6.485638000001927,
         "guard": {
           "name": "success count unchanged",
           "ok": true,
@@ -410,7 +416,7 @@
     },
     "preregistration": {
       "digest": "sha256:ad021a34a35eb56d79cf3972e84e26107b962a8ac68877f044417416c95b3503",
-      "at": "2026-10-14T07:07:14.797Z",
+      "at": "2026-10-14T07:14:54.505Z",
       "body": {
         "seedId": "seed_006",
         "title": "Shorter retry backoff for local ports",
@@ -432,11 +438,11 @@
     "outcomeDetails": {
       "base50": {
         "ok": 20,
-        "p50": 51.95229299999846
+        "p50": 52.09596600000077
       },
       "base5": {
         "ok": 20,
-        "p50": 6.438570000002073
+        "p50": 6.485638000001927
       },
       "note": "applies only to side-effect-free local ports; external ports never retry blindly"
     },
@@ -462,7 +468,7 @@
     },
     "preregistration": {
       "digest": "sha256:85b34a558aa8e8efb2e65f8af018e71fe2efa6456c7aa5a37837853f0bec2dcc",
-      "at": "2026-10-14T07:07:15.968Z",
+      "at": "2026-10-14T07:14:55.683Z",
       "body": {
         "seedId": "seed_007",
         "title": "Activate consumer ChatGPT port for more capacity",
@@ -503,7 +509,7 @@
     },
     "preregistration": {
       "digest": "sha256:d188cc46a7b9de4537aec913610ea287bc99ebc9d5a78b84f52e6b8a587e074e",
-      "at": "2026-10-14T07:07:15.968Z",
+      "at": "2026-10-14T07:14:55.683Z",
       "body": {
         "seedId": "seed_008",
         "title": "Treat unknown quota as unlimited",
@@ -544,7 +550,7 @@
     },
     "preregistration": {
       "digest": "sha256:f9ed29ccde865636303aa870d1ddcd8ef274cd9a0b3162ab93e3478a0a6cb960",
-      "at": "2026-10-14T07:07:15.968Z",
+      "at": "2026-10-14T07:14:55.683Z",
       "body": {
         "seedId": "seed_009",
         "title": "Create extra seats to multiply allowance",
@@ -585,7 +591,7 @@
     },
     "preregistration": {
       "digest": "sha256:937c886f0fc22b8e038d7fabe6de9226112f6f9b5bae5d4b3921095ff8f9a613",
-      "at": "2026-10-14T07:07:15.968Z",
+      "at": "2026-10-14T07:14:55.683Z",
       "body": {
         "seedId": "seed_010",
         "title": "Remote benchmark (declared local)",

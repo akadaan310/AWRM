@@ -12,16 +12,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "the full chain completed, survived restart and replay, and reproduced structurally (and byte-for-byte in deterministic mode)",
   "command": "awrm experiments run CHAIN",
-  "startedAt": "2026-10-14T07:07:15.995Z",
-  "endedAt": "2026-10-14T07:07:16.107Z",
-  "durationMs": 112,
+  "startedAt": "2026-10-14T07:14:55.707Z",
+  "endedAt": "2026-10-14T07:14:55.824Z",
+  "durationMs": 117,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -123,18 +123,8 @@
     },
     {
       "name": "replay: same Mark set as at checkpoint",
-      "expected": [
-        "sha256:1b005cd1bfbbd1312c5778d578bf7f80948af1048e51625d2fbb835b8ad58bf5",
-        "sha256:7fcbb2fcbe414bc1061d6217630aead1be4a8c3157968d73dc34229e87aa743d",
-        "sha256:ef5bc4986b765d4d7b9e342c235249ad53b9a148c8f270e0ab6de5de8c9dc1c8",
-        "sha256:f87af560e221a2041c47e7deec597b236131f075a5aecb22c72c2dc658bea729"
-      ],
-      "observed": [
-        "sha256:1b005cd1bfbbd1312c5778d578bf7f80948af1048e51625d2fbb835b8ad58bf5",
-        "sha256:7fcbb2fcbe414bc1061d6217630aead1be4a8c3157968d73dc34229e87aa743d",
-        "sha256:ef5bc4986b765d4d7b9e342c235249ad53b9a148c8f270e0ab6de5de8c9dc1c8",
-        "sha256:f87af560e221a2041c47e7deec597b236131f075a5aecb22c72c2dc658bea729"
-      ],
+      "expected": true,
+      "observed": true,
       "pass": true,
       "deterministic": true
     },
@@ -169,18 +159,8 @@
     },
     {
       "name": "two deterministic-mode runs: Mark digests byte-identical",
-      "expected": [
-        "sha256:1f2e4eb57b80bdad4168d106fb2386bc262ecf1caeaf9dcbcb73b62f409d2c07",
-        "sha256:b1b99c9ebef05873e74f8073436c70c5cb5961508b75eb5ea72d6c626651a478",
-        "sha256:bd0e189828262bd64a1934274b61eb58173eb501623f779d9ab497649942a7cc",
-        "sha256:fc86eadc16d03a4a4d9a6d7ab780188e2389d6e04e1985a5718dc2010e9eef3a"
-      ],
-      "observed": [
-        "sha256:1f2e4eb57b80bdad4168d106fb2386bc262ecf1caeaf9dcbcb73b62f409d2c07",
-        "sha256:b1b99c9ebef05873e74f8073436c70c5cb5961508b75eb5ea72d6c626651a478",
-        "sha256:bd0e189828262bd64a1934274b61eb58173eb501623f779d9ab497649942a7cc",
-        "sha256:fc86eadc16d03a4a4d9a6d7ab780188e2389d6e04e1985a5718dc2010e9eef3a"
-      ],
+      "expected": "sha256:d20c2862afc8b955f36a08431c9e9ff40b33808257f61b1d03ce1481f9bc3590",
+      "observed": "sha256:d20c2862afc8b955f36a08431c9e9ff40b33808257f61b1d03ce1481f9bc3590",
       "pass": true,
       "deterministic": true
     }
@@ -225,15 +205,15 @@
     "marksPerRun": 4
   },
   "marks": [
-    "sha256:1b005cd1bfbbd1312c5778d578bf7f80948af1048e51625d2fbb835b8ad58bf5",
-    "sha256:7fcbb2fcbe414bc1061d6217630aead1be4a8c3157968d73dc34229e87aa743d",
-    "sha256:ef5bc4986b765d4d7b9e342c235249ad53b9a148c8f270e0ab6de5de8c9dc1c8",
-    "sha256:f87af560e221a2041c47e7deec597b236131f075a5aecb22c72c2dc658bea729"
+    "sha256:9a1a2a1c8483b4cb670cbceaf7313ef3b57396603bc4e7c86ed2c3220dd94bf5",
+    "sha256:c3ea6da5451fcf7f239d86612870011e238be4dca7fce9cbc0b954d959d32a46",
+    "sha256:c5a9e8129e6e351c9cc3623862e2dcba8b2adbd58897f95728af480137d4944e",
+    "sha256:e134b00068d18e22eb0e0aca5ae3aa68a73c2a390fd5c38c1e400ae97e316f5b"
   ],
   "blocked": [],
   "counterexamples": [],
   "notes": [
     "Real-clock Marks embed wall-clock timestamps, run ids and measured latency, so their digests legitimately differ between runs; content digests and verdicts do not."
   ],
-  "deterministicDigest": "sha256:98c9e2e5b17577a15199e00f15bb09b74feb5186129d31d2412182de2027f631"
+  "deterministicDigest": "sha256:13970d6fff92926fc2ffd2ee1f5f70d2dcfa3fec31315c9307eeb402a257115c"
 }

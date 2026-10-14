@@ -8,16 +8,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "one Form ran unchanged through 4 ports (owned-fixture, owned-chat-http, owned-chat-browser, onnx-local); outputs differ only where the port's model differs",
   "command": "awrm experiments run E002",
-  "startedAt": "2026-10-14T07:06:54.876Z",
-  "endedAt": "2026-10-14T07:06:59.313Z",
-  "durationMs": 4437,
+  "startedAt": "2026-10-14T07:14:34.190Z",
+  "endedAt": "2026-10-14T07:14:37.950Z",
+  "durationMs": 3760,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -43,7 +43,7 @@
     }
   ],
   "metrics": {
-    "onnxLoadMs": 1615,
+    "onnxLoadMs": 1417,
     "portsExercised": [
       "owned-fixture",
       "owned-chat-http",
@@ -62,8 +62,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 0.145,
-        "mark": "sha256:fad1241a305a83653585fdf8c4163f13e1c8e6ce47019666a38d516f30d672b3"
+        "elapsedMs": 0.222,
+        "mark": "sha256:bc571a5be19317dc25a87ba8f0f6408f186ca45754d0efa39c1ea8b89af17eae"
       },
       {
         "port": "owned-fixture",
@@ -76,8 +76,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 0.203,
-        "mark": "sha256:b67c8eb9016ff0023c9770ff7f41df9f1a945d23049e971cfcd14aada81b1687"
+        "elapsedMs": 0.304,
+        "mark": "sha256:cca5e97b7ac577b648effbbbaf3fa31ce1873423d52004fa4579b908a894313a"
       },
       {
         "port": "owned-fixture",
@@ -90,8 +90,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 0.283,
-        "mark": "sha256:b1282b742501ef8c45f8c7a7dac796e763ab560c14bb4d11e7a455dd293f3f8c"
+        "elapsedMs": 0.531,
+        "mark": "sha256:089d867bce6bb526fb4288898b24a2a4db8ec8d2d23274fefd31d90541b6c080"
       },
       {
         "port": "owned-chat-http",
@@ -104,8 +104,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 53.62,
-        "mark": "sha256:593647ca1be5175ed693dac0f756bf4b83adb4ebd2f0a149e10f1835c64ed173"
+        "elapsedMs": 49.321,
+        "mark": "sha256:99561547860f1ac30caeeff53bc45af6dbdd3ebce9cc97cbf2befaa67865befb"
       },
       {
         "port": "owned-chat-http",
@@ -118,8 +118,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 9.931,
-        "mark": "sha256:28ef63ebbd4d5f9c900e39be2af0ee2376872c177e064742c05e4131b6801987"
+        "elapsedMs": 5.905,
+        "mark": "sha256:0e146e2d7e55ee53b680d7b2b9664fdca4cc3dcec27ddc9a69a7c76aa3e34dda"
       },
       {
         "port": "owned-chat-http",
@@ -132,8 +132,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 2.969,
-        "mark": "sha256:6522cd40e1d1120edeb61832f2d5ca0b849e833856b5fb4198da04cc1aa2d533"
+        "elapsedMs": 11.987,
+        "mark": "sha256:95fdb0500be62d3059a91d01095206b702fc381b928913feb84746bc90aeb2f1"
       },
       {
         "port": "owned-chat-browser",
@@ -146,8 +146,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 950.858,
-        "mark": "sha256:177e1d95ba4845c9ed574a3f22417943884fb44b8cd2d827a7304d17c455a361"
+        "elapsedMs": 566.89,
+        "mark": "sha256:c98fa423f870f4b79c179eba28dacd1ee2441de3f4be6fb8e2539e8ab8c7b060"
       },
       {
         "port": "owned-chat-browser",
@@ -160,8 +160,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 250.173,
-        "mark": "sha256:8b9a667e366af3d58f45fcb973a1aac9e2ec1ad924c619d223a1ac4de35fc1f5"
+        "elapsedMs": 223.211,
+        "mark": "sha256:382748c3fcaada6f2b8f7adfb91e704e6c8706b2cdc022b5d8ece945abbff550"
       },
       {
         "port": "owned-chat-browser",
@@ -174,8 +174,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 228.876,
-        "mark": "sha256:5aefafffe6671fafc933fe66ddf0679a3d9ed1b4b4b07606a70d4b9d0e7a8c64"
+        "elapsedMs": 218.002,
+        "mark": "sha256:dcfc87b59609c8a19f3cbcf50365d9f8caa6cdb6a202fee419b31a3de053e8cd"
       },
       {
         "port": "onnx-local",
@@ -186,8 +186,8 @@
         "output": null,
         "error": "invalid-output",
         "correct": false,
-        "elapsedMs": 111.556,
-        "mark": "sha256:72c4f781fa72f76130917edc606c22713df8b395c9e86fbb500339e664b1e76c"
+        "elapsedMs": 108.928,
+        "mark": "sha256:db6391c601e111f012d20c1389d6513f2eeb991f2b835e6b098451c8843d3af5"
       },
       {
         "port": "onnx-local",
@@ -200,8 +200,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 32.635,
-        "mark": "sha256:249ebc5fffb32dadfd60a476ff457c3981028678490564ceeeb71805c7b5e8a1"
+        "elapsedMs": 35.979,
+        "mark": "sha256:7dc5481886bc54656f9b7d5f4634a30db3c939fd96f8346d577809e53992c4f9"
       },
       {
         "port": "onnx-local",
@@ -214,8 +214,8 @@
         },
         "error": null,
         "correct": true,
-        "elapsedMs": 44.674,
-        "mark": "sha256:da335c9f561fbeb7f08542852e53a2da64cd3035f084b4e0b258cd1260f84f0d"
+        "elapsedMs": 33.625,
+        "mark": "sha256:ab4f06153114bf283ebc740237738ca6290ebe1fdf8e35707b5d0a47475f71a0"
       }
     ],
     "chatFixtureStats": {
@@ -224,18 +224,18 @@
     }
   },
   "marks": [
-    "sha256:fad1241a305a83653585fdf8c4163f13e1c8e6ce47019666a38d516f30d672b3",
-    "sha256:b67c8eb9016ff0023c9770ff7f41df9f1a945d23049e971cfcd14aada81b1687",
-    "sha256:b1282b742501ef8c45f8c7a7dac796e763ab560c14bb4d11e7a455dd293f3f8c",
-    "sha256:593647ca1be5175ed693dac0f756bf4b83adb4ebd2f0a149e10f1835c64ed173",
-    "sha256:28ef63ebbd4d5f9c900e39be2af0ee2376872c177e064742c05e4131b6801987",
-    "sha256:6522cd40e1d1120edeb61832f2d5ca0b849e833856b5fb4198da04cc1aa2d533",
-    "sha256:177e1d95ba4845c9ed574a3f22417943884fb44b8cd2d827a7304d17c455a361",
-    "sha256:8b9a667e366af3d58f45fcb973a1aac9e2ec1ad924c619d223a1ac4de35fc1f5",
-    "sha256:5aefafffe6671fafc933fe66ddf0679a3d9ed1b4b4b07606a70d4b9d0e7a8c64",
-    "sha256:72c4f781fa72f76130917edc606c22713df8b395c9e86fbb500339e664b1e76c",
-    "sha256:249ebc5fffb32dadfd60a476ff457c3981028678490564ceeeb71805c7b5e8a1",
-    "sha256:da335c9f561fbeb7f08542852e53a2da64cd3035f084b4e0b258cd1260f84f0d"
+    "sha256:bc571a5be19317dc25a87ba8f0f6408f186ca45754d0efa39c1ea8b89af17eae",
+    "sha256:cca5e97b7ac577b648effbbbaf3fa31ce1873423d52004fa4579b908a894313a",
+    "sha256:089d867bce6bb526fb4288898b24a2a4db8ec8d2d23274fefd31d90541b6c080",
+    "sha256:99561547860f1ac30caeeff53bc45af6dbdd3ebce9cc97cbf2befaa67865befb",
+    "sha256:0e146e2d7e55ee53b680d7b2b9664fdca4cc3dcec27ddc9a69a7c76aa3e34dda",
+    "sha256:95fdb0500be62d3059a91d01095206b702fc381b928913feb84746bc90aeb2f1",
+    "sha256:c98fa423f870f4b79c179eba28dacd1ee2441de3f4be6fb8e2539e8ab8c7b060",
+    "sha256:382748c3fcaada6f2b8f7adfb91e704e6c8706b2cdc022b5d8ece945abbff550",
+    "sha256:dcfc87b59609c8a19f3cbcf50365d9f8caa6cdb6a202fee419b31a3de053e8cd",
+    "sha256:db6391c601e111f012d20c1389d6513f2eeb991f2b835e6b098451c8843d3af5",
+    "sha256:7dc5481886bc54656f9b7d5f4634a30db3c939fd96f8346d577809e53992c4f9",
+    "sha256:ab4f06153114bf283ebc740237738ca6290ebe1fdf8e35707b5d0a47475f71a0"
   ],
   "blocked": [],
   "counterexamples": [],

@@ -10,16 +10,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "hostile content stayed data: typed outputs, redacted evidence, refused secrets, neutralised markers, no exfiltration, no policy change",
   "command": "awrm experiments run E010",
-  "startedAt": "2026-10-14T07:07:11.710Z",
-  "endedAt": "2026-10-14T07:07:13.086Z",
-  "durationMs": 1376,
+  "startedAt": "2026-10-14T07:14:50.993Z",
+  "endedAt": "2026-10-14T07:14:52.465Z",
+  "durationMs": 1472,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -108,11 +108,11 @@
   ],
   "metrics": {},
   "marks": [
-    "sha256:6b92cb2c98a531f2149d6e6a64decc6624603d0d016cae10cda6be485e3aabaa",
-    "sha256:1d962ca439f9dab4d7db42461e7a6a9d9ae9d2120081dba9f6e372cf232d4a9e",
-    "sha256:c22ee80dcfab96dd33eb6f8842d749af569615caf1cda1ccfd4cec1da4f753d9",
-    "sha256:e2813fe6c537d7a51929b38d96b3c45e86c0c70c28e5d168eb25aae0c544c83f",
-    "sha256:1c609c2b60499bb3ed626fc587b2f23645ba9a35aad4d46f6c8e260d2cb728e2"
+    "sha256:55557f2fc75356e0664d71d4985efacd783c7c4c80a71ac2650e137432d4b28e",
+    "sha256:e401c6cb3c787dd54fee549ddaf23ff5d5fc945876fcd821f8c58ea8db06897c",
+    "sha256:6d224453c0bb33e67012b4f1849af93c9d2d0dd3157d737f40541366492a4b89",
+    "sha256:3be084b9dd618374da5b97b9ce4c190ced5135ce15f7c63b44718d3a71f1079e",
+    "sha256:71ceb4ec5e5a69be883040234605a6414d56e2a681f26bbf4127a835e62e19d4"
   ],
   "blocked": [],
   "counterexamples": [],

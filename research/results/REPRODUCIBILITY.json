@@ -1,0 +1,188 @@
+{
+  "schema": "awrm.reproducibility/1",
+  "generatedAt": "2026-10-14T07:13:55.642Z",
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "a5401e1ead5cb73cbf0a0594ea6a0b07d6a411e1"
+  },
+  "liveReferences": {
+    "purl": true,
+    "acsp": true
+  },
+  "rows": [
+    {
+      "id": "E001",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:1bf24fbe9b944eb85635100f68ca03ae351830b02d1e3ef3dc2e7298da124366"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:1bf24fbe9b944eb85635100f68ca03ae351830b02d1e3ef3dc2e7298da124366"
+      },
+      "identical": true
+    },
+    {
+      "id": "E002",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:1704b90788a0bfa164094822d1f627b5189e4ec102eaaa5dee8f7054d6743170"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:1704b90788a0bfa164094822d1f627b5189e4ec102eaaa5dee8f7054d6743170"
+      },
+      "identical": true
+    },
+    {
+      "id": "E003",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:3ad482f1944f14dc4830cf6c270dc74448b52d27e890f0f4c161785f2f603c88"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:3ad482f1944f14dc4830cf6c270dc74448b52d27e890f0f4c161785f2f603c88"
+      },
+      "identical": true
+    },
+    {
+      "id": "E004",
+      "run1": {
+        "verdict": "OBSERVED",
+        "deterministicDigest": "sha256:fb23dec5a90ce040a7f4a3e4339621e2064e2c12f814e9cde33f9ddd0113ed1d"
+      },
+      "run2": {
+        "verdict": "OBSERVED",
+        "deterministicDigest": "sha256:fb23dec5a90ce040a7f4a3e4339621e2064e2c12f814e9cde33f9ddd0113ed1d"
+      },
+      "identical": true
+    },
+    {
+      "id": "E005",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:5a98e86b5eb125dc2ea20f5b4a5404db1b04cfeba614d7e1cf1f7de2e2e2786f"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:5a98e86b5eb125dc2ea20f5b4a5404db1b04cfeba614d7e1cf1f7de2e2e2786f"
+      },
+      "identical": true
+    },
+    {
+      "id": "E006",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:4060dc1c2602a1ffad2959fc5b17f3ae8cc4bb20baf0cd9c00e62109cb1f1237"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:4060dc1c2602a1ffad2959fc5b17f3ae8cc4bb20baf0cd9c00e62109cb1f1237"
+      },
+      "identical": true
+    },
+    {
+      "id": "E007",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:e8953e44a950e3489d7c889a412ac46da586ac579030d8004cf8e21868098633"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:e8953e44a950e3489d7c889a412ac46da586ac579030d8004cf8e21868098633"
+      },
+      "identical": true
+    },
+    {
+      "id": "E008",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:bdf10f9b6f71c14fb9db50db4c00f9fa60548c81bb40dcda39228b1cad1ae469"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:bdf10f9b6f71c14fb9db50db4c00f9fa60548c81bb40dcda39228b1cad1ae469"
+      },
+      "identical": true
+    },
+    {
+      "id": "E009",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:acd5f50e0c5cde34bad651556e3a6dcc3095a1bca1050f369de3e5cb4343c796"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:acd5f50e0c5cde34bad651556e3a6dcc3095a1bca1050f369de3e5cb4343c796"
+      },
+      "identical": true
+    },
+    {
+      "id": "E010",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:86dd94ef7b50b63cdb0365edb8655cdab846234898c51d2ed2bfdffa284fbbb4"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:86dd94ef7b50b63cdb0365edb8655cdab846234898c51d2ed2bfdffa284fbbb4"
+      },
+      "identical": true
+    },
+    {
+      "id": "E011",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:3602bb4aee36dab90868a02082e966d8b21618334a7df8bb212d0851d40bee76"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:3602bb4aee36dab90868a02082e966d8b21618334a7df8bb212d0851d40bee76"
+      },
+      "identical": true
+    },
+    {
+      "id": "E012",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:3954c606f1e752f9974ac8571aaead7f3aac2530455d8693dd06d899640563b4"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:3954c606f1e752f9974ac8571aaead7f3aac2530455d8693dd06d899640563b4"
+      },
+      "identical": true
+    },
+    {
+      "id": "CHAIN",
+      "run1": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:13970d6fff92926fc2ffd2ee1f5f70d2dcfa3fec31315c9307eeb402a257115c"
+      },
+      "run2": {
+        "verdict": "SUPPORTED",
+        "deterministicDigest": "sha256:13970d6fff92926fc2ffd2ee1f5f70d2dcfa3fec31315c9307eeb402a257115c"
+      },
+      "identical": true
+    },
+    {
+      "id": "X001",
+      "run1": {
+        "verdict": "REFUTED",
+        "deterministicDigest": "sha256:882fedfa917399c9397021e48b6ce9f5a51d15b8f4f408ab91f25aa5116fb5d6"
+      },
+      "run2": {
+        "verdict": "REFUTED",
+        "deterministicDigest": "sha256:882fedfa917399c9397021e48b6ce9f5a51d15b8f4f408ab91f25aa5116fb5d6"
+      },
+      "identical": true
+    }
+  ],
+  "identical": 14,
+  "total": 14
+}

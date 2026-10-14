@@ -9,16 +9,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "both adapters passed against separately running reference servers; GET stayed safe; export required owner authorisation and the destination protocol’s own authority",
   "command": "awrm experiments run E008",
-  "startedAt": "2026-10-14T07:07:11.184Z",
-  "endedAt": "2026-10-14T07:07:11.660Z",
-  "durationMs": 477,
+  "startedAt": "2026-10-14T07:14:50.459Z",
+  "endedAt": "2026-10-14T07:14:50.934Z",
+  "durationMs": 475,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -547,7 +547,9 @@
       "seurl": "PARTIAL (3 of 7 verbs translated to proposals; 4 documented as unsupported/underspecified)"
     }
   },
-  "marks": [],
+  "marks": [
+    "sha256:a785e1a8060d69217b60e929dc57ac9b889ba7bd055a759721e42a12a0fe08e9"
+  ],
   "blocked": [],
   "counterexamples": [],
   "notes": [

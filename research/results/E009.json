@@ -9,16 +9,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "all 9 single-field tampers, 2 content tampers and a dangling parent were detected; originals verified",
   "command": "awrm experiments run E009",
-  "startedAt": "2026-10-14T07:07:11.684Z",
-  "endedAt": "2026-10-14T07:07:11.688Z",
-  "durationMs": 4,
+  "startedAt": "2026-10-14T07:14:50.960Z",
+  "endedAt": "2026-10-14T07:14:50.967Z",
+  "durationMs": 7,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -176,8 +176,8 @@
     }
   },
   "marks": [
-    "sha256:2be8b98f078a6608203c69025d073f548ebd345a9aea097263dfc0fa005f0357",
-    "sha256:fb60813d15a206601f912f2266ae97f45f2ce9bf5a76bea8f9a4f7ed247fad74"
+    "sha256:cde60dff8ccec29a1a3af5e61f6040ff5c99d733535aef5c441f60fc90110040",
+    "sha256:26cf23d93c5fd78469e774edf92db48755898a392ba6f004400c4b8c8dc4c9c6"
   ],
   "blocked": [],
   "counterexamples": [],

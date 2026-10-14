@@ -8,16 +8,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "valid answer completed; invalid output, timeout, refusal, partial stream and bad input all ended as typed failures with verifying Marks",
   "command": "awrm experiments run E001",
-  "startedAt": "2026-10-14T07:06:54.693Z",
-  "endedAt": "2026-10-14T07:06:54.863Z",
-  "durationMs": 170,
+  "startedAt": "2026-10-14T07:14:34.015Z",
+  "endedAt": "2026-10-14T07:14:34.181Z",
+  "durationMs": 166,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -233,12 +233,12 @@
     "marksWritten": 6
   },
   "marks": [
-    "sha256:b36646634d6121a1a74cc0248a590e8346d9dc010bda4d1e0f3a79dae6dc2114",
-    "sha256:00da4c3e1181b09c8423d900b5114b52bf1942d2527048e32c343b81d37b5b18",
-    "sha256:ae30c03b3965c7c21e19f171c94673454ecaf4d674a91a5a58d860c3df5f0c59",
-    "sha256:815062e0bc779536c447be7d679a8888984efbbf2db87fc3d2893aaec583cfa1",
-    "sha256:21430cdcec3e5b933abb122d2117a27ba02ffd47279a3e08fb237fbb16a2e618",
-    "sha256:6520a76624fd82bc0639e8a7312b6408b9baa0f163e23a3c93b935ef3585d4bf"
+    "sha256:7441e7f693f67c77b4150a5c0d7fedf2ffc06a4c74b674fc78d69f3029b5021a",
+    "sha256:f7fbb116d257031930a23a3f13bdf93be00ff1bc1223a7848177dc387bd382a6",
+    "sha256:247465a8f4874bf4b529195844a04914a72bc5eaad1a41f1c3674fca5f3c01ba",
+    "sha256:c38f3a1b7c04534c2c39ad984894a169c2518e55e76084bbbed79061cbc3cf5a",
+    "sha256:5fa3d2e7478908861611614b38521544a5cb60a2bfcf06e7e684a0f25ef28752",
+    "sha256:017de99912392539d3b76fe1b6df149bef1705e5b3c12975059eb6bc0edfb619"
   ],
   "blocked": [],
   "counterexamples": [],

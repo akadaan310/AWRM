@@ -8,16 +8,16 @@
   "verdict": "SUPPORTED",
   "verdictReason": "login stayed a human (emulated) step; restarts restored the owned session best-effort; expiry forced re-login; no credential material reached AWRM storage",
   "command": "awrm experiments run E003",
-  "startedAt": "2026-10-14T07:06:59.328Z",
-  "endedAt": "2026-10-14T07:07:01.889Z",
-  "durationMs": 2561,
+  "startedAt": "2026-10-14T07:14:37.970Z",
+  "endedAt": "2026-10-14T07:14:40.577Z",
+  "durationMs": 2606,
   "environment": {
     "node": "v22.22.0",
     "platform": "linux 6.18.44-fc-v114",
     "cpus": 4,
     "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
     "memMb": 16093,
-    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+    "commit": "4b85a18e9b528a413a74886de670cc83257a5ff7"
   },
   "checks": [
     {
@@ -139,17 +139,17 @@
   "metrics": {
     "fixtureLogins": 3,
     "failedLogins": 0,
-    "journalBytes": 64747,
+    "journalBytes": 64744,
     "reopenedRuns": 7
   },
   "marks": [
-    "sha256:95922867851b15afa7daed9c7f57b989758e769cd8c8f116f83bb24aec11a73f",
-    "sha256:8772b8b9770628c38dec5b38d70e4a4a64f009a0ee391f3b820fee03b68a9066",
-    "sha256:6d7e9a9290132399c92ef4f73757b1601811bc2ce6ad489082a6da6e9757c634",
-    "sha256:433ffa92970ececb34e690947bd75024d3da893b454aeafaa81e92e5407436d8",
-    "sha256:6a288ef52ffc1d0c33e116720e27ee80d24fdc4f483444586a578e048afbab29",
-    "sha256:69bfec80719adacd980b7f321f7ac8e854f72190810aba0c5db9543a6179fe0e",
-    "sha256:200f2d8c7614e70f9cfac0302376ab34b67f9c42fae86fa13c9062dd71c8020a"
+    "sha256:74574d37ce3e772191543b31802b84852fec107d77c01297cb82e36862628a07",
+    "sha256:ccc8979a738f12844c565200be4b13fe42828a275f49d2f13862f9319d14d0c4",
+    "sha256:5ae22eaba638025042109d79eb6db95cbbd784fa57d38b5b0085851464dd94ba",
+    "sha256:32ef823565a0b528497919cec4a87ded4dde66e81a435351add85d9e460abcde",
+    "sha256:6a5e0117b66421dcc53f4c6529c9789b70cc35e99da5f0863d0ae65f833c217e",
+    "sha256:b6046f8a7bb40a94e27c4be09f93fcb7354e6d096fcacf8e7fc45a81ced81a8d",
+    "sha256:c85e687e79caf6ad09849460b65038e411badd7b5f1c376b1a96a2d97029a00f"
   ],
   "blocked": [],
   "counterexamples": [],
