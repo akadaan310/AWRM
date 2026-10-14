@@ -1,0 +1,22 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  kernel:
+    # Browser-independent: no Chromium, no model download, no reference servers.
+    runs-on: ubuntu-latest
+    env:
+      AWRM_SKIP_BROWSER: "1"
+      AWRM_SKIP_MODEL: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 10.28.0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: node bin/awrm.mjs audit
+      - run: node bin/awrm.mjs interop check --protocol purl --offline
+      - run: node bin/awrm.mjs interop check --protocol acsp --offline
+      - run: AWRM_RESULTS_DIR=$RUNNER_TEMP/results node bin/awrm.mjs experiments run E001 E004 E006 E007 E009 E011 CHAIN

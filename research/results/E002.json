@@ -1,0 +1,246 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E002",
+  "title": "Port substitution: one Form, several conforming ports",
+  "hypotheses": [
+    "H-1"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "one Form ran unchanged through 4 ports (owned-fixture, owned-chat-http, owned-chat-browser, onnx-local); outputs differ only where the port's model differs",
+  "command": "awrm experiments run E002",
+  "startedAt": "2026-10-14T07:06:54.876Z",
+  "endedAt": "2026-10-14T07:06:59.313Z",
+  "durationMs": 4437,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "same Form digest across all ports",
+      "expected": 2,
+      "observed": 2,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture/HTTP/browser ports all completed correctly",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "real model runs reached a terminal state through the same kernel path",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "onnxLoadMs": 1615,
+    "portsExercised": [
+      "owned-fixture",
+      "owned-chat-http",
+      "owned-chat-browser",
+      "onnx-local"
+    ],
+    "reports": [
+      {
+        "port": "owned-fixture",
+        "kind": "owned-fixture",
+        "liveness": "deterministic-test-double",
+        "dmu": "math.check.v1",
+        "state": "completed",
+        "output": {
+          "answer": 391
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 0.145,
+        "mark": "sha256:fad1241a305a83653585fdf8c4163f13e1c8e6ce47019666a38d516f30d672b3"
+      },
+      {
+        "port": "owned-fixture",
+        "kind": "owned-fixture",
+        "liveness": "deterministic-test-double",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "billing"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 0.203,
+        "mark": "sha256:b67c8eb9016ff0023c9770ff7f41df9f1a945d23049e971cfcd14aada81b1687"
+      },
+      {
+        "port": "owned-fixture",
+        "kind": "owned-fixture",
+        "liveness": "deterministic-test-double",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "shipping"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 0.283,
+        "mark": "sha256:b1282b742501ef8c45f8c7a7dac796e763ab560c14bb4d11e7a455dd293f3f8c"
+      },
+      {
+        "port": "owned-chat-http",
+        "kind": "owned-fixture",
+        "liveness": "owned-fixture",
+        "dmu": "math.check.v1",
+        "state": "completed",
+        "output": {
+          "answer": 391
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 53.62,
+        "mark": "sha256:593647ca1be5175ed693dac0f756bf4b83adb4ebd2f0a149e10f1835c64ed173"
+      },
+      {
+        "port": "owned-chat-http",
+        "kind": "owned-fixture",
+        "liveness": "owned-fixture",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "billing"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 9.931,
+        "mark": "sha256:28ef63ebbd4d5f9c900e39be2af0ee2376872c177e064742c05e4131b6801987"
+      },
+      {
+        "port": "owned-chat-http",
+        "kind": "owned-fixture",
+        "liveness": "owned-fixture",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "shipping"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 2.969,
+        "mark": "sha256:6522cd40e1d1120edeb61832f2d5ca0b849e833856b5fb4198da04cc1aa2d533"
+      },
+      {
+        "port": "owned-chat-browser",
+        "kind": "approved-browser",
+        "liveness": "owned-fixture",
+        "dmu": "math.check.v1",
+        "state": "completed",
+        "output": {
+          "answer": 391
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 950.858,
+        "mark": "sha256:177e1d95ba4845c9ed574a3f22417943884fb44b8cd2d827a7304d17c455a361"
+      },
+      {
+        "port": "owned-chat-browser",
+        "kind": "approved-browser",
+        "liveness": "owned-fixture",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "billing"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 250.173,
+        "mark": "sha256:8b9a667e366af3d58f45fcb973a1aac9e2ec1ad924c619d223a1ac4de35fc1f5"
+      },
+      {
+        "port": "owned-chat-browser",
+        "kind": "approved-browser",
+        "liveness": "owned-fixture",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "shipping"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 228.876,
+        "mark": "sha256:5aefafffe6671fafc933fe66ddf0679a3d9ed1b4b4b07606a70d4b9d0e7a8c64"
+      },
+      {
+        "port": "onnx-local",
+        "kind": "local-model",
+        "liveness": "local-open-weight-model",
+        "dmu": "math.check.v1",
+        "state": "failed",
+        "output": null,
+        "error": "invalid-output",
+        "correct": false,
+        "elapsedMs": 111.556,
+        "mark": "sha256:72c4f781fa72f76130917edc606c22713df8b395c9e86fbb500339e664b1e76c"
+      },
+      {
+        "port": "onnx-local",
+        "kind": "local-model",
+        "liveness": "local-open-weight-model",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "billing"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 32.635,
+        "mark": "sha256:249ebc5fffb32dadfd60a476ff457c3981028678490564ceeeb71805c7b5e8a1"
+      },
+      {
+        "port": "onnx-local",
+        "kind": "local-model",
+        "liveness": "local-open-weight-model",
+        "dmu": "text.classify.v1",
+        "state": "completed",
+        "output": {
+          "label": "shipping"
+        },
+        "error": null,
+        "correct": true,
+        "elapsedMs": 44.674,
+        "mark": "sha256:da335c9f561fbeb7f08542852e53a2da64cd3035f084b4e0b258cd1260f84f0d"
+      }
+    ],
+    "chatFixtureStats": {
+      "logins": 2,
+      "chats": 6
+    }
+  },
+  "marks": [
+    "sha256:fad1241a305a83653585fdf8c4163f13e1c8e6ce47019666a38d516f30d672b3",
+    "sha256:b67c8eb9016ff0023c9770ff7f41df9f1a945d23049e971cfcd14aada81b1687",
+    "sha256:b1282b742501ef8c45f8c7a7dac796e763ab560c14bb4d11e7a455dd293f3f8c",
+    "sha256:593647ca1be5175ed693dac0f756bf4b83adb4ebd2f0a149e10f1835c64ed173",
+    "sha256:28ef63ebbd4d5f9c900e39be2af0ee2376872c177e064742c05e4131b6801987",
+    "sha256:6522cd40e1d1120edeb61832f2d5ca0b849e833856b5fb4198da04cc1aa2d533",
+    "sha256:177e1d95ba4845c9ed574a3f22417943884fb44b8cd2d827a7304d17c455a361",
+    "sha256:8b9a667e366af3d58f45fcb973a1aac9e2ec1ad924c619d223a1ac4de35fc1f5",
+    "sha256:5aefafffe6671fafc933fe66ddf0679a3d9ed1b4b4b07606a70d4b9d0e7a8c64",
+    "sha256:72c4f781fa72f76130917edc606c22713df8b395c9e86fbb500339e664b1e76c",
+    "sha256:249ebc5fffb32dadfd60a476ff457c3981028678490564ceeeb71805c7b5e8a1",
+    "sha256:da335c9f561fbeb7f08542852e53a2da64cd3035f084b4e0b258cd1260f84f0d"
+  ],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [
+    "onnx-local outcomes: math.check.v1=failed(invalid-output):null, text.classify.v1=completed:{\"label\":\"billing\"}, text.classify.v1=completed:{\"label\":\"shipping\"}"
+  ],
+  "deterministicDigest": "sha256:1704b90788a0bfa164094822d1f627b5189e4ec102eaaa5dee8f7054d6743170"
+}

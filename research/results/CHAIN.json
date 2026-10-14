@@ -1,0 +1,239 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "CHAIN",
+  "title": "End-to-end chain across two independent adapters with restart and replay",
+  "hypotheses": [
+    "H-1",
+    "H-3",
+    "H-4",
+    "H-7",
+    "AX-6"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "the full chain completed, survived restart and replay, and reproduced structurally (and byte-for-byte in deterministic mode)",
+  "command": "awrm experiments run CHAIN",
+  "startedAt": "2026-10-14T07:07:15.995Z",
+  "endedAt": "2026-10-14T07:07:16.107Z",
+  "durationMs": 112,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "classify completed (local-a)",
+      "expected": [
+        "completed",
+        {
+          "label": "billing"
+        }
+      ],
+      "observed": [
+        "completed",
+        {
+          "label": "billing"
+        }
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "plan completed in bonded order",
+      "expected": [
+        true,
+        [
+          "extract",
+          "cite",
+          "summarize"
+        ]
+      ],
+      "observed": [
+        true,
+        [
+          "extract",
+          "cite",
+          "summarize"
+        ]
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "summary used the passed topic (local-b format)",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "summary Mark cites cite-node Mark (Bond) and classify Mark (Pass/Keep)",
+      "expected": [
+        true,
+        true
+      ],
+      "observed": [
+        true,
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "checkpoint: evidence graph verified before restart",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "replay after restart: Mark graph verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "replay after restart: Keeps verify",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "replay after restart: Keep content intact",
+      "expected": {
+        "label": "billing"
+      },
+      "observed": {
+        "label": "billing"
+      },
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "replay after restart: Pass intact",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "replay: same Mark set as at checkpoint",
+      "expected": [
+        "sha256:1b005cd1bfbbd1312c5778d578bf7f80948af1048e51625d2fbb835b8ad58bf5",
+        "sha256:7fcbb2fcbe414bc1061d6217630aead1be4a8c3157968d73dc34229e87aa743d",
+        "sha256:ef5bc4986b765d4d7b9e342c235249ad53b9a148c8f270e0ab6de5de8c9dc1c8",
+        "sha256:f87af560e221a2041c47e7deec597b236131f075a5aecb22c72c2dc658bea729"
+      ],
+      "observed": [
+        "sha256:1b005cd1bfbbd1312c5778d578bf7f80948af1048e51625d2fbb835b8ad58bf5",
+        "sha256:7fcbb2fcbe414bc1061d6217630aead1be4a8c3157968d73dc34229e87aa743d",
+        "sha256:ef5bc4986b765d4d7b9e342c235249ad53b9a148c8f270e0ab6de5de8c9dc1c8",
+        "sha256:f87af560e221a2041c47e7deec597b236131f075a5aecb22c72c2dc658bea729"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "nothing pending after restart",
+      "expected": {
+        "requeued": [],
+        "ambiguous": [],
+        "pendingQueued": []
+      },
+      "observed": {
+        "requeued": [],
+        "ambiguous": [],
+        "pendingQueued": []
+      },
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "two real-clock runs: identical structural fingerprint (verdicts + content digests)",
+      "expected": "sha256:9afc3e15e6b99249f6568a8ded592a12a11cd87d571c99339722bb20a5ea5360",
+      "observed": "sha256:9afc3e15e6b99249f6568a8ded592a12a11cd87d571c99339722bb20a5ea5360",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "two real-clock runs: Mark digests differ (timestamps/ids are genuinely variable)",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": false
+    },
+    {
+      "name": "two deterministic-mode runs: Mark digests byte-identical",
+      "expected": [
+        "sha256:1f2e4eb57b80bdad4168d106fb2386bc262ecf1caeaf9dcbcb73b62f409d2c07",
+        "sha256:b1b99c9ebef05873e74f8073436c70c5cb5961508b75eb5ea72d6c626651a478",
+        "sha256:bd0e189828262bd64a1934274b61eb58173eb501623f779d9ab497649942a7cc",
+        "sha256:fc86eadc16d03a4a4d9a6d7ab780188e2389d6e04e1985a5718dc2010e9eef3a"
+      ],
+      "observed": [
+        "sha256:1f2e4eb57b80bdad4168d106fb2386bc262ecf1caeaf9dcbcb73b62f409d2c07",
+        "sha256:b1b99c9ebef05873e74f8073436c70c5cb5961508b75eb5ea72d6c626651a478",
+        "sha256:bd0e189828262bd64a1934274b61eb58173eb501623f779d9ab497649942a7cc",
+        "sha256:fc86eadc16d03a4a4d9a6d7ab780188e2389d6e04e1985a5718dc2010e9eef3a"
+      ],
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "summary": "Topic billing: (ticket-INV-7) The customer asked for a receipt.",
+    "fingerprint": [
+      {
+        "dmu": "facts.cite.v1",
+        "port": "local-b",
+        "verdict": "completed",
+        "input": "sha256:6288d0a7a1f24063700368a4449cd5aded85162c4ad26691ece894171c92f7c3",
+        "output": "sha256:e19256a1a6c5e2a74534ded1064c6f421bdb03e2f3b35ac0d98d75f6269a9323",
+        "parents": 1
+      },
+      {
+        "dmu": "facts.extract.v1",
+        "port": "local-a",
+        "verdict": "completed",
+        "input": "sha256:a22e99c5db42dd41bf1a0b8a87a38ce7409f6dd008b90087f7663043ff6fc476",
+        "output": "sha256:5059125f61cec2378881fee5bf731cff71f0794bdf150175ca5985b9e0819811",
+        "parents": 0
+      },
+      {
+        "dmu": "text.classify.v1",
+        "port": "local-a",
+        "verdict": "completed",
+        "input": "sha256:a22e99c5db42dd41bf1a0b8a87a38ce7409f6dd008b90087f7663043ff6fc476",
+        "output": "sha256:9892ddfb296c6aa21f5ccff658f6faf25122e12f102305b44fd7f99475ee8e0e",
+        "parents": 0
+      },
+      {
+        "dmu": "text.summarize.v1",
+        "port": "local-b",
+        "verdict": "completed",
+        "input": "sha256:e19256a1a6c5e2a74534ded1064c6f421bdb03e2f3b35ac0d98d75f6269a9323",
+        "output": "sha256:213b945d4a5e0105633a3b10d5a904a14ab6c8b2784514bea1c27c4c8a8fd2f9",
+        "parents": 2
+      }
+    ],
+    "deterministicMarkSetDigest": "sha256:d20c2862afc8b955f36a08431c9e9ff40b33808257f61b1d03ce1481f9bc3590",
+    "marksPerRun": 4
+  },
+  "marks": [
+    "sha256:1b005cd1bfbbd1312c5778d578bf7f80948af1048e51625d2fbb835b8ad58bf5",
+    "sha256:7fcbb2fcbe414bc1061d6217630aead1be4a8c3157968d73dc34229e87aa743d",
+    "sha256:ef5bc4986b765d4d7b9e342c235249ad53b9a148c8f270e0ab6de5de8c9dc1c8",
+    "sha256:f87af560e221a2041c47e7deec597b236131f075a5aecb22c72c2dc658bea729"
+  ],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [
+    "Real-clock Marks embed wall-clock timestamps, run ids and measured latency, so their digests legitimately differ between runs; content digests and verdicts do not."
+  ],
+  "deterministicDigest": "sha256:98c9e2e5b17577a15199e00f15bb09b74feb5186129d31d2412182de2027f631"
+}

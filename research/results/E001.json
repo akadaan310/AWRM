@@ -1,0 +1,247 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E001",
+  "title": "DMU atom: one prompt, one validated response or a typed failure",
+  "hypotheses": [
+    "H-2"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "valid answer completed; invalid output, timeout, refusal, partial stream and bad input all ended as typed failures with verifying Marks",
+  "command": "awrm experiments run E001",
+  "startedAt": "2026-10-14T07:06:54.693Z",
+  "endedAt": "2026-10-14T07:06:54.863Z",
+  "durationMs": 170,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "correct: state",
+      "expected": "completed",
+      "observed": "completed",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "correct: answer",
+      "expected": 391,
+      "observed": 391,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "correct: mark verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "correct: mark names port + liveness",
+      "expected": [
+        "owned-fixture",
+        "deterministic-test-double"
+      ],
+      "observed": [
+        "owned-fixture",
+        "deterministic-test-double"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "correct: elapsed time measured",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-wrong: failed with invalid-output",
+      "expected": [
+        "failed",
+        "invalid-output"
+      ],
+      "observed": [
+        "failed",
+        "invalid-output"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-wrong: no validated output",
+      "expected": [
+        null,
+        null
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-wrong: mark verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-timeout: failed with timeout",
+      "expected": [
+        "failed",
+        "timeout"
+      ],
+      "observed": [
+        "failed",
+        "timeout"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-timeout: no validated output",
+      "expected": [
+        null,
+        null
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-timeout: mark verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "timeout enforced near deadline (<1 s)",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": false
+    },
+    {
+      "name": "fixture-refuse: failed with refused",
+      "expected": [
+        "failed",
+        "refused"
+      ],
+      "observed": [
+        "failed",
+        "refused"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-refuse: no validated output",
+      "expected": [
+        null,
+        null
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-refuse: mark verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-partial: failed with partial-response",
+      "expected": [
+        "failed",
+        "partial-response"
+      ],
+      "observed": [
+        "failed",
+        "partial-response"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-partial: no validated output",
+      "expected": [
+        null,
+        null
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "fixture-partial: mark verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "invalid input rejected before any Turn",
+      "expected": [
+        "failed",
+        "invalid-input",
+        0
+      ],
+      "observed": [
+        "failed",
+        "invalid-input",
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "distinct negative mark kinds ≥ 3",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "negativeKinds": [
+      "invalid-output",
+      "timeout",
+      "refused",
+      "partial-response"
+    ],
+    "marksWritten": 6
+  },
+  "marks": [
+    "sha256:b36646634d6121a1a74cc0248a590e8346d9dc010bda4d1e0f3a79dae6dc2114",
+    "sha256:00da4c3e1181b09c8423d900b5114b52bf1942d2527048e32c343b81d37b5b18",
+    "sha256:ae30c03b3965c7c21e19f171c94673454ecaf4d674a91a5a58d860c3df5f0c59",
+    "sha256:815062e0bc779536c447be7d679a8888984efbbf2db87fc3d2893aaec583cfa1",
+    "sha256:21430cdcec3e5b933abb122d2117a27ba02ffd47279a3e08fb237fbb16a2e618",
+    "sha256:6520a76624fd82bc0639e8a7312b6408b9baa0f163e23a3c93b935ef3585d4bf"
+  ],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:1bf24fbe9b944eb85635100f68ca03ae351830b02d1e3ef3dc2e7298da124366"
+}

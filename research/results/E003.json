@@ -1,0 +1,158 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E003",
+  "title": "Signed-in boundary (owned fixture): human-only login, restart, expiry, logout, no cookie extraction",
+  "hypotheses": [
+    "H-4"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "login stayed a human (emulated) step; restarts restored the owned session best-effort; expiry forced re-login; no credential material reached AWRM storage",
+  "command": "awrm experiments run E003",
+  "startedAt": "2026-10-14T07:06:59.328Z",
+  "endedAt": "2026-10-14T07:07:01.889Z",
+  "durationMs": 2561,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "another seat cannot open fx-seat credential",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "no credential → human-login-required, no success",
+      "expected": [
+        "failed",
+        true
+      ],
+      "observed": [
+        "failed",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "credential via vault handle → completed",
+      "expected": [
+        "completed",
+        {
+          "answer": 6
+        }
+      ],
+      "observed": [
+        "completed",
+        {
+          "answer": 6
+        }
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "expired fixture session → one re-login with own credential → completed",
+      "expected": "completed",
+      "observed": "completed",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "browser before human login → human-login-required (AWRM never types credentials)",
+      "expected": [
+        "failed",
+        true
+      ],
+      "observed": [
+        "failed",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "after emulated human login → completed",
+      "expected": [
+        "completed",
+        {
+          "answer": 16
+        }
+      ],
+      "observed": [
+        "completed",
+        {
+          "answer": 16
+        }
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "profile restart keeps the fixture session (best-effort restore)",
+      "expected": "completed",
+      "observed": "completed",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "server-side expiry → human-login-required (revocation wins)",
+      "expected": [
+        "failed",
+        true
+      ],
+      "observed": [
+        "failed",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "store contains no fixture password",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "store contains no fixture session cookie",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "seat records are handles only (vault:/profile:)",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "fixtureLogins": 3,
+    "failedLogins": 0,
+    "journalBytes": 64747,
+    "reopenedRuns": 7
+  },
+  "marks": [
+    "sha256:95922867851b15afa7daed9c7f57b989758e769cd8c8f116f83bb24aec11a73f",
+    "sha256:8772b8b9770628c38dec5b38d70e4a4a64f009a0ee391f3b820fee03b68a9066",
+    "sha256:6d7e9a9290132399c92ef4f73757b1601811bc2ce6ad489082a6da6e9757c634",
+    "sha256:433ffa92970ececb34e690947bd75024d3da893b454aeafaa81e92e5407436d8",
+    "sha256:6a288ef52ffc1d0c33e116720e27ee80d24fdc4f483444586a578e048afbab29",
+    "sha256:69bfec80719adacd980b7f321f7ac8e854f72190810aba0c5db9543a6179fe0e",
+    "sha256:200f2d8c7614e70f9cfac0302376ab34b67f9c42fae86fa13c9062dd71c8020a"
+  ],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:3ad482f1944f14dc4830cf6c270dc74448b52d27e890f0f4c161785f2f603c88"
+}

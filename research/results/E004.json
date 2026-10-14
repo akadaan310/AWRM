@@ -1,0 +1,385 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E004",
+  "title": "Provider eligibility: consumer UI vs API vs local, decided by the Gate",
+  "hypotheses": [
+    "H-6",
+    "AX-4"
+  ],
+  "verdict": "OBSERVED",
+  "verdictReason": "every external path is denied by deterministic, evidence-backed Gate decisions; API paths become permissible only with owner consent + credential (policy reading recorded, not a legal ruling)",
+  "command": "awrm experiments run E004",
+  "startedAt": "2026-10-14T07:07:01.911Z",
+  "endedAt": "2026-10-14T07:07:01.917Z",
+  "durationMs": 6,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "perm.openai.consumer-web: deterministic",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.openai.consumer-web: denied",
+      "expected": "deny",
+      "observed": "deny",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.openai.consumer-web: still denied even with owner consent (provider permission not established)",
+      "expected": [
+        "deny",
+        "provider-permission-not-established"
+      ],
+      "observed": [
+        "deny",
+        "provider-permission-not-established"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.openai.api: deterministic",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.openai.api: denied",
+      "expected": "deny",
+      "observed": "deny",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.anthropic.consumer-web: deterministic",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.anthropic.consumer-web: denied",
+      "expected": "deny",
+      "observed": "deny",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.anthropic.consumer-web: still denied even with owner consent (provider permission not established)",
+      "expected": [
+        "deny",
+        "provider-permission-not-established"
+      ],
+      "observed": [
+        "deny",
+        "provider-permission-not-established"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.anthropic.api: deterministic",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.anthropic.api: denied",
+      "expected": "deny",
+      "observed": "deny",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.anthropic.api: permitted only once owner grants and a key handle exists",
+      "expected": "permit",
+      "observed": "permit",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.google.consumer-web: deterministic",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.google.consumer-web: denied",
+      "expected": "deny",
+      "observed": "deny",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.google.consumer-web: still denied even with owner consent (provider permission not established)",
+      "expected": [
+        "deny",
+        "provider-permission-not-established"
+      ],
+      "observed": [
+        "deny",
+        "provider-permission-not-established"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.google.gemini-api: deterministic",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.google.gemini-api: denied",
+      "expected": "deny",
+      "observed": "deny",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "perm.google.gemini-api: permitted only once owner grants and a key handle exists",
+      "expected": "permit",
+      "observed": "permit",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "consumer.openai.chatgpt: run denied before any Turn",
+      "expected": [
+        "denied",
+        0
+      ],
+      "observed": [
+        "denied",
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "consumer.anthropic.claude-ai: run denied before any Turn",
+      "expected": [
+        "denied",
+        0
+      ],
+      "observed": [
+        "denied",
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "consumer.google.gemini: run denied before any Turn",
+      "expected": [
+        "denied",
+        0
+      ],
+      "observed": [
+        "denied",
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "api.anthropic.messages: run denied before any Turn",
+      "expected": [
+        "denied",
+        0
+      ],
+      "observed": [
+        "denied",
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "api.google.gemini: run denied before any Turn",
+      "expected": [
+        "denied",
+        0
+      ],
+      "observed": [
+        "denied",
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "no network request was made for any external path",
+      "expected": 0,
+      "observed": 0,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "decisions": [
+      {
+        "provider": "openai",
+        "product": "ChatGPT (chatgpt.com, apps)",
+        "mode": "consumer-human",
+        "status": "not-an-awrm-port",
+        "gate": "n/a (human use; not an AWRM port)"
+      },
+      {
+        "provider": "openai",
+        "product": "ChatGPT web UI",
+        "mode": "consumer-automation",
+        "status": "blocked",
+        "gate": "deny:owner-permission-not-granted",
+        "reasons": [
+          "owner permission is unknown"
+        ]
+      },
+      {
+        "provider": "openai",
+        "product": "OpenAI API",
+        "mode": "official-api",
+        "status": "unknown",
+        "gate": "deny:owner-permission-not-granted",
+        "reasons": [
+          "owner permission is unknown"
+        ]
+      },
+      {
+        "provider": "anthropic",
+        "product": "Claude (claude.ai, apps)",
+        "mode": "consumer-human",
+        "status": "not-an-awrm-port",
+        "gate": "n/a (human use; not an AWRM port)"
+      },
+      {
+        "provider": "anthropic",
+        "product": "claude.ai web UI",
+        "mode": "consumer-automation",
+        "status": "blocked",
+        "gate": "deny:owner-permission-not-granted",
+        "reasons": [
+          "owner permission is unknown"
+        ]
+      },
+      {
+        "provider": "anthropic",
+        "product": "Claude API (Messages)",
+        "mode": "official-api",
+        "status": "unknown",
+        "gate": "deny:owner-permission-not-granted",
+        "reasons": [
+          "owner permission is unknown"
+        ]
+      },
+      {
+        "provider": "google",
+        "product": "Gemini Apps (gemini.google.com)",
+        "mode": "consumer-human",
+        "status": "not-an-awrm-port",
+        "gate": "n/a (human use; not an AWRM port)"
+      },
+      {
+        "provider": "google",
+        "product": "Gemini Apps web UI",
+        "mode": "consumer-automation",
+        "status": "unknown",
+        "gate": "deny:owner-permission-not-granted",
+        "reasons": [
+          "owner permission is unknown"
+        ]
+      },
+      {
+        "provider": "google",
+        "product": "Gemini API",
+        "mode": "official-api",
+        "status": "unknown",
+        "gate": "deny:owner-permission-not-granted",
+        "reasons": [
+          "owner permission is unknown"
+        ]
+      },
+      {
+        "provider": "awrm-local",
+        "product": "Owned fixtures (in-process, owned-chat HTTP, owned-chat browser)",
+        "mode": "owned-fixture",
+        "status": "permitted",
+        "gate": "local permit path"
+      },
+      {
+        "provider": "awrm-local",
+        "product": "Local open-weight models (ONNX via transformers.js)",
+        "mode": "local-inference",
+        "status": "permitted",
+        "gate": "local permit path"
+      },
+      {
+        "endToEnd": "consumer.openai.chatgpt",
+        "state": "denied",
+        "gate": "owner-permission-not-granted"
+      },
+      {
+        "endToEnd": "consumer.anthropic.claude-ai",
+        "state": "denied",
+        "gate": "owner-permission-not-granted"
+      },
+      {
+        "endToEnd": "consumer.google.gemini",
+        "state": "denied",
+        "gate": "owner-permission-not-granted"
+      },
+      {
+        "endToEnd": "api.anthropic.messages",
+        "state": "denied",
+        "gate": "owner-permission-not-granted"
+      },
+      {
+        "endToEnd": "api.google.gemini",
+        "state": "denied",
+        "gate": "owner-permission-not-granted"
+      }
+    ]
+  },
+  "marks": [
+    "sha256:db294cbfe7ec9bd8bee0bdef5ec2d513e7801e3a8726c1ff8a0dcb975b7a8956",
+    "sha256:fdd42251d5fee8464b8fac5a9f2baaa29e90e13bd841072ce78fa1bb7e98badb",
+    "sha256:ec744f45ef4b27df933eb2de65272385f0b0a1ef82ca4578e95f9e1bebc9d158",
+    "sha256:eb6471548828baac722ad0c0aa1d8590f174cdb77b163dc19847ad25042fd87b",
+    "sha256:e82b8f5d01bc5f1c6fbb5666bfe54ff8a6629a150d82d622df0f4aa61b1d2298"
+  ],
+  "blocked": [
+    {
+      "path": "ChatGPT / claude.ai / Gemini consumer UI automation",
+      "status": "BLOCKED",
+      "reason": "provider permission prohibited or not established (see docs/PROVIDER_ELIGIBILITY.md)"
+    },
+    {
+      "path": "Anthropic Messages API, Gemini API",
+      "status": "NOT_RUN",
+      "reason": "no owner-supplied key or acceptance of API terms in this environment"
+    },
+    {
+      "path": "OpenAI API",
+      "status": "NOT_RUN",
+      "reason": "terms pages unreachable (403) on 2026-10-14; status unknown; no port implemented"
+    }
+  ],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:fb23dec5a90ce040a7f4a3e4339621e2064e2c12f814e9cde33f9ddd0113ed1d"
+}

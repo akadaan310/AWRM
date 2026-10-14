@@ -1,0 +1,186 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E009",
+  "title": "Evidence corruption detection",
+  "hypotheses": [
+    "H-3",
+    "AX-6"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "all 9 single-field tampers, 2 content tampers and a dangling parent were detected; originals verified",
+  "command": "awrm experiments run E009",
+  "startedAt": "2026-10-14T07:07:11.684Z",
+  "endedAt": "2026-10-14T07:07:11.688Z",
+  "durationMs": 4,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "original mark verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "original content verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "original graph verifies",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: input digest flipped",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: output digest flipped",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: parent link replaced",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: parent link removed",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: timing endedAt moved",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: elapsed time altered",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: failed verdict upgraded to completed",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: port relabelled as external-live",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "tamper detected: preview rewritten",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "re-sealed forgery has a different digest than the cited one",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "graph check flags a child citing a missing parent",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "content tamper: altered stored output detected",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "content tamper: altered stored input detected",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "original still verifies after the trials",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "tampers": 9,
+    "detections": {
+      "input digest flipped": [
+        "digest mismatch (content altered)"
+      ],
+      "output digest flipped": [
+        "digest mismatch (content altered)"
+      ],
+      "parent link replaced": [
+        "digest mismatch (content altered)"
+      ],
+      "parent link removed": [
+        "digest mismatch (content altered)"
+      ],
+      "timing endedAt moved": [
+        "digest mismatch (content altered)",
+        "timing: ended before started"
+      ],
+      "elapsed time altered": [
+        "digest mismatch (content altered)"
+      ],
+      "failed verdict upgraded to completed": [
+        "digest mismatch (content altered)",
+        "completed mark without output digest"
+      ],
+      "port relabelled as external-live": [
+        "digest mismatch (content altered)"
+      ],
+      "preview rewritten": [
+        "digest mismatch (content altered)"
+      ]
+    }
+  },
+  "marks": [
+    "sha256:2be8b98f078a6608203c69025d073f548ebd345a9aea097263dfc0fa005f0357",
+    "sha256:fb60813d15a206601f912f2266ae97f45f2ce9bf5a76bea8f9a4f7ed247fad74"
+  ],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:acd5f50e0c5cde34bad651556e3a6dcc3095a1bca1050f369de3e5cb4343c796"
+}

@@ -1,0 +1,254 @@
+{
+  "schema": "awrm.experiment-summary/1",
+  "generatedAt": "2026-10-14T07:07:16.146Z",
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "results": [
+    {
+      "id": "E001",
+      "title": "DMU atom: one prompt, one validated response or a typed failure",
+      "hypotheses": [
+        "H-2"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 20,
+      "failedChecks": [],
+      "marks": 6,
+      "blocked": [],
+      "durationMs": 170,
+      "deterministicDigest": "sha256:1bf24fbe9b944eb85635100f68ca03ae351830b02d1e3ef3dc2e7298da124366",
+      "command": "awrm experiments run E001"
+    },
+    {
+      "id": "E002",
+      "title": "Port substitution: one Form, several conforming ports",
+      "hypotheses": [
+        "H-1"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 3,
+      "failedChecks": [],
+      "marks": 12,
+      "blocked": [],
+      "durationMs": 4437,
+      "deterministicDigest": "sha256:1704b90788a0bfa164094822d1f627b5189e4ec102eaaa5dee8f7054d6743170",
+      "command": "awrm experiments run E002"
+    },
+    {
+      "id": "E003",
+      "title": "Signed-in boundary (owned fixture): human-only login, restart, expiry, logout, no cookie extraction",
+      "hypotheses": [
+        "H-4"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 11,
+      "failedChecks": [],
+      "marks": 7,
+      "blocked": [],
+      "durationMs": 2561,
+      "deterministicDigest": "sha256:3ad482f1944f14dc4830cf6c270dc74448b52d27e890f0f4c161785f2f603c88",
+      "command": "awrm experiments run E003"
+    },
+    {
+      "id": "E004",
+      "title": "Provider eligibility: consumer UI vs API vs local, decided by the Gate",
+      "hypotheses": [
+        "H-6",
+        "AX-4"
+      ],
+      "verdict": "OBSERVED",
+      "checks": 23,
+      "failedChecks": [],
+      "marks": 5,
+      "blocked": [
+        {
+          "path": "ChatGPT / claude.ai / Gemini consumer UI automation",
+          "status": "BLOCKED",
+          "reason": "provider permission prohibited or not established (see docs/PROVIDER_ELIGIBILITY.md)"
+        },
+        {
+          "path": "Anthropic Messages API, Gemini API",
+          "status": "NOT_RUN",
+          "reason": "no owner-supplied key or acceptance of API terms in this environment"
+        },
+        {
+          "path": "OpenAI API",
+          "status": "NOT_RUN",
+          "reason": "terms pages unreachable (403) on 2026-10-14; status unknown; no port implemented"
+        }
+      ],
+      "durationMs": 6,
+      "deterministicDigest": "sha256:fb23dec5a90ce040a7f4a3e4339621e2064e2c12f814e9cde33f9ddd0113ed1d",
+      "command": "awrm experiments run E004"
+    },
+    {
+      "id": "E005",
+      "title": "One DMU → Fleet: measured scaling until machine limits",
+      "hypotheses": [
+        "H-5"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 12,
+      "failedChecks": [],
+      "marks": 0,
+      "blocked": [],
+      "durationMs": 7580,
+      "deterministicDigest": "sha256:5a98e86b5eb125dc2ea20f5b4a5404db1b04cfeba614d7e1cf1f7de2e2e2786f",
+      "command": "awrm experiments run E005"
+    },
+    {
+      "id": "E006",
+      "title": "Quota confinement: 4 views on 1 account vs 4 independent resources",
+      "hypotheses": [
+        "H-5",
+        "AX-5"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 7,
+      "failedChecks": [],
+      "marks": 0,
+      "blocked": [],
+      "durationMs": 1593,
+      "deterministicDigest": "sha256:4060dc1c2602a1ffad2959fc5b17f3ae8cc4bb20baf0cd9c00e62109cb1f1237",
+      "command": "awrm experiments run E006"
+    },
+    {
+      "id": "E007",
+      "title": "Cross-model Pass with attempted credential/authority transfer",
+      "hypotheses": [
+        "H-4",
+        "AX-3"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 14,
+      "failedChecks": [],
+      "marks": 5,
+      "blocked": [],
+      "durationMs": 10,
+      "deterministicDigest": "sha256:e8953e44a950e3489d7c889a412ac46da586ac579030d8004cf8e21868098633",
+      "command": "awrm experiments run E007"
+    },
+    {
+      "id": "E008",
+      "title": "Protocol boundaries: PURL/0.1 and ACSP/0.1 black-box, SEURL partial",
+      "hypotheses": [
+        "H-8",
+        "AX-7"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 53,
+      "failedChecks": [],
+      "marks": 0,
+      "blocked": [],
+      "durationMs": 477,
+      "deterministicDigest": "sha256:bdf10f9b6f71c14fb9db50db4c00f9fa60548c81bb40dcda39228b1cad1ae469",
+      "command": "awrm experiments run E008"
+    },
+    {
+      "id": "E009",
+      "title": "Evidence corruption detection",
+      "hypotheses": [
+        "H-3",
+        "AX-6"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 17,
+      "failedChecks": [],
+      "marks": 2,
+      "blocked": [],
+      "durationMs": 4,
+      "deterministicDigest": "sha256:acd5f50e0c5cde34bad651556e3a6dcc3095a1bca1050f369de3e5cb4343c796",
+      "command": "awrm experiments run E009"
+    },
+    {
+      "id": "E010",
+      "title": "Malicious prompting and injection",
+      "hypotheses": [
+        "H-4",
+        "H-6",
+        "AX-4"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 11,
+      "failedChecks": [],
+      "marks": 5,
+      "blocked": [],
+      "durationMs": 1376,
+      "deterministicDigest": "sha256:86dd94ef7b50b63cdb0365edb8655cdab846234898c51d2ed2bfdffa284fbbb4",
+      "command": "awrm experiments run E010"
+    },
+    {
+      "id": "E011",
+      "title": "Crash mid-Turn, restart, reconcile, replay",
+      "hypotheses": [
+        "H-7"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 14,
+      "failedChecks": [],
+      "marks": 4,
+      "blocked": [],
+      "durationMs": 599,
+      "deterministicDigest": "sha256:7a27dc316f8ff37198c40b5ee1f19d6bccf1e91e6be6829ca2cabe54b9a0c010",
+      "command": "awrm experiments run E011"
+    },
+    {
+      "id": "E012",
+      "title": "Self-discovery with fixed authority",
+      "hypotheses": [
+        "H-6",
+        "AX-4"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 9,
+      "failedChecks": [],
+      "marks": 0,
+      "blocked": [],
+      "durationMs": 2246,
+      "deterministicDigest": "sha256:3954c606f1e752f9974ac8571aaead7f3aac2530455d8693dd06d899640563b4",
+      "command": "awrm experiments run E012"
+    },
+    {
+      "id": "CHAIN",
+      "title": "End-to-end chain across two independent adapters with restart and replay",
+      "hypotheses": [
+        "H-1",
+        "H-3",
+        "H-4",
+        "H-7",
+        "AX-6"
+      ],
+      "verdict": "SUPPORTED",
+      "checks": 14,
+      "failedChecks": [],
+      "marks": 4,
+      "blocked": [],
+      "durationMs": 112,
+      "deterministicDigest": "sha256:98c9e2e5b17577a15199e00f15bb09b74feb5186129d31d2412182de2027f631",
+      "command": "awrm experiments run CHAIN"
+    },
+    {
+      "id": "X001",
+      "title": "Negative control: \"N views ⇒ N× allowance\" (expected REFUTED)",
+      "hypotheses": [
+        "naive-H5-complement"
+      ],
+      "verdict": "REFUTED",
+      "checks": 1,
+      "failedChecks": [
+        "naive prediction: 12 admitted calls"
+      ],
+      "marks": 0,
+      "blocked": [],
+      "durationMs": 5,
+      "deterministicDigest": "sha256:882fedfa917399c9397021e48b6ce9f5a51d15b8f4f408ab91f25aa5116fb5d6",
+      "command": "awrm experiments run X001"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E006",
+  "title": "Quota confinement: 4 views on 1 account vs 4 independent resources",
+  "hypotheses": [
+    "H-5",
+    "AX-5"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "shared quota keys capped admitted calls at the allowance regardless of views; independent resources scaled; a 429 stopped the key",
+  "command": "awrm experiments run E006",
+  "startedAt": "2026-10-14T07:07:09.538Z",
+  "endedAt": "2026-10-14T07:07:11.131Z",
+  "durationMs": 1593,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "case A: exactly 3 calls admitted for 4 views of one account",
+      "expected": 3,
+      "observed": 3,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "case A: the rest denied or not dispatched (never rerouted)",
+      "expected": 12,
+      "observed": 12,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "case A: ledger used = 3",
+      "expected": 3,
+      "observed": 3,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "case B: 4 independent resources × 3 = 12 admitted",
+      "expected": 12,
+      "observed": 12,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "case C: 2 complete, then 429 recorded, then hard stop (denied: rate-limited)",
+      "expected": [
+        "completed:permit",
+        "completed:permit",
+        "failed:rate-limited",
+        "denied:gate-denied",
+        "denied:gate-denied"
+      ],
+      "observed": [
+        "completed:permit",
+        "completed:permit",
+        "failed:rate-limited",
+        "denied:gate-denied",
+        "denied:gate-denied"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "case C: fixture saw exactly one 429 (no hammering after the signal)",
+      "expected": 1,
+      "observed": 1,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "case D: 4 browser tabs on one profile → 3 admitted",
+      "expected": 3,
+      "observed": 3,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "caseA": {
+      "completed": 3,
+      "denied": 5,
+      "notDispatched": 4,
+      "capacity": {
+        "formula": "R ≤ Σ_g min(Q_g/T_g, Σ_i∈g min(r_i, c_i/L_i))",
+        "lanes": [
+          {
+            "laneId": "v1",
+            "quotaKey": "sim:account-1",
+            "concurrency": 2,
+            "rate": null,
+            "meanOccupiedMs": 7.325278000000253,
+            "boundPerSec": 273.02718067490827
+          },
+          {
+            "laneId": "v2",
+            "quotaKey": "sim:account-1",
+            "concurrency": 2,
+            "rate": null,
+            "meanOccupiedMs": 6.821343999999954,
+            "boundPerSec": 293.1973523106317
+          },
+          {
+            "laneId": "v3",
+            "quotaKey": "sim:account-1",
+            "concurrency": 2,
+            "rate": null,
+            "meanOccupiedMs": 6.631192000000738,
+            "boundPerSec": 301.6048999938137
+          },
+          {
+            "laneId": "v4",
+            "quotaKey": "sim:account-1",
+            "concurrency": 2,
+            "rate": null,
+            "meanOccupiedMs": null,
+            "boundPerSec": "unknown"
+          }
+        ],
+        "groups": [
+          {
+            "quotaKey": "sim:account-1",
+            "lanes": [
+              "v1",
+              "v2",
+              "v3",
+              "v4"
+            ],
+            "allowancePerSec": "not-applicable",
+            "boundPerSec": "unknown"
+          }
+        ],
+        "fleetBoundPerSec": "unknown",
+        "globalCap": 8,
+        "note": "Engineering upper bound under simplified assumptions; unknown terms are reported, never assumed infinite."
+      }
+    },
+    "caseC": {
+      "states": [
+        "completed:permit",
+        "completed:permit",
+        "failed:rate-limited",
+        "denied:gate-denied",
+        "denied:gate-denied"
+      ],
+      "fixtureChats": 2
+    },
+    "caseD": {
+      "completed": 3,
+      "tabsOpened": 3,
+      "maxInFlight": 4
+    }
+  },
+  "marks": [],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:4060dc1c2602a1ffad2959fc5b17f3ae8cc4bb20baf0cd9c00e62109cb1f1237"
+}

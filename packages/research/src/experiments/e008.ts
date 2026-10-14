@@ -83,6 +83,7 @@ export const E008 = () =>
   runExperiment({ id: 'E008', title: 'Protocol boundaries: PURL/0.1 and ACSP/0.1 black-box, SEURL partial', hypotheses: ['H-8', 'AX-7'] }, async (r) => {
     const pass = await deterministicPass();
     r.metrics.passDigest = pass.digest;
+    r.mark(pass.from.markDigest);
     mkdirSync(GOLDEN_DIR(), { recursive: true });
     const modes: Record<string, string> = {};
 

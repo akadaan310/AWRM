@@ -1,0 +1,558 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E008",
+  "title": "Protocol boundaries: PURL/0.1 and ACSP/0.1 black-box, SEURL partial",
+  "hypotheses": [
+    "H-8",
+    "AX-7"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "both adapters passed against separately running reference servers; GET stayed safe; export required owner authorisation and the destination protocol’s own authority",
+  "command": "awrm experiments run E008",
+  "startedAt": "2026-10-14T07:07:11.184Z",
+  "endedAt": "2026-10-14T07:07:11.660Z",
+  "durationMs": 477,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "[purl/live] discovery protocol",
+      "expected": "PURL/0.1",
+      "observed": "PURL/0.1",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] export without owner authorisation refused locally",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] authorisation for another protocol refused",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] GET /ops/checkpoint → 405 Allow: POST, version unchanged",
+      "expected": [
+        405,
+        "POST",
+        true
+      ],
+      "observed": [
+        405,
+        "POST",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] export → checkpoint at version 2",
+      "expected": 2,
+      "observed": 2,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] identical retry with same Idempotency-Key replays, no new event",
+      "expected": [
+        true,
+        2
+      ],
+      "observed": [
+        true,
+        2
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] stale expected_version → 409",
+      "expected": "409",
+      "observed": "409",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] AWRM refuses to invoke grant (outside export allow-list)",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] server verifies hash chain",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] continuity returns AWRM package as claims",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] another principal cannot see the resource (404, non-disclosure)",
+      "expected": "404",
+      "observed": "404",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/live] token-in-URL base rejected",
+      "expected": "invalid-input",
+      "observed": "invalid-input",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl] wire paths are protocol-correct",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] discovery protocol",
+      "expected": "PURL/0.1",
+      "observed": "PURL/0.1",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] export without owner authorisation refused locally",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] authorisation for another protocol refused",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] GET /ops/checkpoint → 405 Allow: POST, version unchanged",
+      "expected": [
+        405,
+        "POST",
+        true
+      ],
+      "observed": [
+        405,
+        "POST",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] export → checkpoint at version 2",
+      "expected": 2,
+      "observed": 2,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] identical retry with same Idempotency-Key replays, no new event",
+      "expected": [
+        true,
+        2
+      ],
+      "observed": [
+        true,
+        2
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] stale expected_version → 409",
+      "expected": "409",
+      "observed": "409",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] AWRM refuses to invoke grant (outside export allow-list)",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] server verifies hash chain",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] continuity returns AWRM package as claims",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] another principal cannot see the resource (404, non-disclosure)",
+      "expected": "404",
+      "observed": "404",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] token-in-URL base rejected",
+      "expected": "invalid-input",
+      "observed": "invalid-input",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[purl/replay] every recorded exchange consumed",
+      "expected": 0,
+      "observed": 0,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] discovery protocol",
+      "expected": "ACSP/0.1",
+      "observed": "ACSP/0.1",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] export without owner authorisation refused locally",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] mutation without capability → 401 authentication_required",
+      "expected": [
+        401,
+        "authentication_required"
+      ],
+      "observed": [
+        401,
+        "authentication_required"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] prepare_append GET is an intent and changes nothing",
+      "expected": [
+        "operation_intent",
+        true
+      ],
+      "observed": [
+        "operation_intent",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] export → TOK-001 + checkpoint 1",
+      "expected": [
+        "TOK-001",
+        1
+      ],
+      "observed": [
+        "TOK-001",
+        1
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] identical retry replays (no new event)",
+      "expected": [
+        true,
+        2
+      ],
+      "observed": [
+        true,
+        2
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] stale expected_version → 409 stale_version",
+      "expected": [
+        409,
+        "stale_version"
+      ],
+      "observed": [
+        409,
+        "stale_version"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] actor ≠ capability session → 403 session_mismatch",
+      "expected": [
+        403,
+        "session_mismatch"
+      ],
+      "observed": [
+        403,
+        "session_mismatch"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] TOK source is the ACSP session, assurance=capability (not the AWRM seat)",
+      "expected": [
+        "awrm-adapter-session",
+        "capability"
+      ],
+      "observed": [
+        "awrm-adapter-session",
+        "capability"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] TOK carries AWRM mark citation",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/live] AWRM refuses delegate (outside allow-list)",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp] wire paths are protocol-correct",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] discovery protocol",
+      "expected": "ACSP/0.1",
+      "observed": "ACSP/0.1",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] export without owner authorisation refused locally",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] mutation without capability → 401 authentication_required",
+      "expected": [
+        401,
+        "authentication_required"
+      ],
+      "observed": [
+        401,
+        "authentication_required"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] prepare_append GET is an intent and changes nothing",
+      "expected": [
+        "operation_intent",
+        true
+      ],
+      "observed": [
+        "operation_intent",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] export → TOK-001 + checkpoint 1",
+      "expected": [
+        "TOK-001",
+        1
+      ],
+      "observed": [
+        "TOK-001",
+        1
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] identical retry replays (no new event)",
+      "expected": [
+        true,
+        2
+      ],
+      "observed": [
+        true,
+        2
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] stale expected_version → 409 stale_version",
+      "expected": [
+        409,
+        "stale_version"
+      ],
+      "observed": [
+        409,
+        "stale_version"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] actor ≠ capability session → 403 session_mismatch",
+      "expected": [
+        403,
+        "session_mismatch"
+      ],
+      "observed": [
+        403,
+        "session_mismatch"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] TOK source is the ACSP session, assurance=capability (not the AWRM seat)",
+      "expected": [
+        "awrm-adapter-session",
+        "capability"
+      ],
+      "observed": [
+        "awrm-adapter-session",
+        "capability"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] TOK carries AWRM mark citation",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] AWRM refuses delegate (outside allow-list)",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[acsp/replay] every recorded exchange consumed",
+      "expected": 0,
+      "observed": 0,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[seurl] START/TALK/COMMIT → 3 proposals, nothing executed, no authority",
+      "expected": [
+        [
+          "plan-boundary",
+          "run-dmu-proposal",
+          "checkpoint-proposal"
+        ],
+        false,
+        false,
+        0
+      ],
+      "observed": [
+        [
+          "plan-boundary",
+          "run-dmu-proposal",
+          "checkpoint-proposal"
+        ],
+        false,
+        false,
+        0
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[seurl] WRITE/PERTURB/SWITCH reported as non-conformance, never mapped",
+      "expected": [
+        "WRITE:underspecified",
+        "PERTURB:underspecified",
+        "SWITCH:unsupported"
+      ],
+      "observed": [
+        "WRITE:underspecified",
+        "PERTURB:underspecified",
+        "SWITCH:unsupported"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "[seurl] unknown verb and BUILD flagged",
+      "expected": [
+        "unknown-verb",
+        "underspecified"
+      ],
+      "observed": [
+        "unknown-verb",
+        "underspecified"
+      ],
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "passDigest": "sha256:d9b4bce0f60a433bbc6edb32aee8d31b8a7cc1fd670e385603f06006f374ead8",
+    "purlExchanges": 17,
+    "acspExchanges": 12,
+    "modes": {
+      "purl": "LIVE_REFERENCE_VERIFIED",
+      "acsp": "LIVE_REFERENCE_VERIFIED",
+      "seurl": "PARTIAL (3 of 7 verbs translated to proposals; 4 documented as unsupported/underspecified)"
+    }
+  },
+  "marks": [],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [
+    "purl: 17 live exchanges (11 GET), recorded to fixtures/interop/purl.golden.json",
+    "acsp: 12 live exchanges (5 GET), recorded to fixtures/interop/acsp.golden.json"
+  ],
+  "deterministicDigest": "sha256:bdf10f9b6f71c14fb9db50db4c00f9fa60548c81bb40dcda39228b1cad1ae469"
+}

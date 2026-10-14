@@ -1,0 +1,177 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E007",
+  "title": "Cross-model Pass with attempted credential/authority transfer",
+  "hypotheses": [
+    "H-4",
+    "AX-3"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "cited data crossed from A to B; every credential/authority transfer attempt failed; B had no access to content it was not passed",
+  "command": "awrm experiments run E007",
+  "startedAt": "2026-10-14T07:07:11.152Z",
+  "endedAt": "2026-10-14T07:07:11.162Z",
+  "durationMs": 10,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "A classified",
+      "expected": [
+        "completed",
+        {
+          "label": "billing"
+        }
+      ],
+      "observed": [
+        "completed",
+        {
+          "label": "billing"
+        }
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "Pass with credential/permission fields refused (authority-transfer)",
+      "expected": "authority-transfer",
+      "observed": "authority-transfer",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "secret in Pass content redacted",
+      "expected": [
+        false,
+        [
+          "anthropic-key"
+        ]
+      ],
+      "observed": [
+        false,
+        [
+          "anthropic-key"
+        ]
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "Pass record has no seat/credential/quota fields",
+      "expected": [],
+      "observed": [],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B receives no credential access",
+      "expected": null,
+      "observed": null,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B summarised with the passed label",
+      "expected": [
+        "completed",
+        true
+      ],
+      "observed": [
+        "completed",
+        true
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B prompt marks the Pass as untrusted data",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B mark cites A mark as parent",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B seat unchanged (no credentialRef acquired)",
+      "expected": null,
+      "observed": null,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B cannot open A credential through the vault",
+      "expected": "forbidden",
+      "observed": "forbidden",
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "Pass addressed to B unusable by another seat",
+      "expected": [
+        "failed",
+        "forbidden"
+      ],
+      "observed": [
+        "failed",
+        "forbidden"
+      ],
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "B receives no credential access",
+      "expected": null,
+      "observed": null,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "without the Pass, B output carries no label (no hidden memory)",
+      "expected": false,
+      "observed": false,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "Keep not readable by a non-reader seat",
+      "expected": [
+        "failed",
+        "forbidden"
+      ],
+      "observed": [
+        "failed",
+        "forbidden"
+      ],
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "passId": "pass_FZS0AVZ9SWX4Q9G3",
+    "passDigest": "sha256:47bfbbda4cbc491a27f222168e3485573197728ffa849a45f56de5bdb8251d22",
+    "promptChars": 95
+  },
+  "marks": [
+    "sha256:7eb04d68f213a57dd424629302a3ad2ea5538dc114111ee7e7c5403406c64880",
+    "sha256:5ad3d3b92d3834b89c3e0662958c0e7d20d09fc2736ecb52a9b02a747b22d6a0",
+    "sha256:b6f8546f71363527782fcdf1d302e3fe6f724c2dbccda0d4180cfe5d87c3c2b5",
+    "sha256:85e4f99e50453e832bb01b7e1b280535bc404aefa8e7478368b7786976597a8e",
+    "sha256:26b694881d670c7e7fba48d56b6a9c8a762cb1b19d864f7897a4219776efa1a9"
+  ],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:e8953e44a950e3489d7c889a412ac46da586ac579030d8004cf8e21868098633"
+}

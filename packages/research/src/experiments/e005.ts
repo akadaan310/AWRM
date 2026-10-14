@@ -45,6 +45,8 @@ export const E005 = () =>
       });
       const runs = await Promise.all(Array.from({ length: 32 }, (_, i) => fleet.submit({ dmuId: 'math.check.v1', input: { question: `What is ${i + 2} × 3?` }, partition: `t${i % 4}` })));
       const okRuns = runs.filter((x) => x.state === 'completed');
+      r.mark(...runs.map((x) => x.markDigest));
+      r.metrics.benchmarkMarksWritten = kernel.listMarks().length;
       r.check('global cap 8 respected', fleet.stats.maxInFlightObserved <= 8, true);
       r.check('bad lane breaker opened', fleet.breakerOpen('bad'), true);
       r.check('bad lane failures bounded (≤ threshold + concurrency in flight)', (fleet.stats.perLane.bad?.failures ?? 0) <= 2 + 3, true);

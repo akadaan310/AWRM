@@ -1,0 +1,380 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "E005",
+  "title": "One DMU → Fleet: measured scaling until machine limits",
+  "hypotheses": [
+    "H-5"
+  ],
+  "verdict": "SUPPORTED",
+  "verdictReason": "throughput scaled with lanes until CPU cores saturated; caps, fairness, backpressure and breaker isolation held",
+  "command": "awrm experiments run E005",
+  "startedAt": "2026-10-14T07:07:01.940Z",
+  "endedAt": "2026-10-14T07:07:09.520Z",
+  "durationMs": 7580,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "all benchmark jobs completed",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "in-flight never exceeded lane count",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "latency-bound scaling 1→8 lanes ≥ 4×",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": false
+    },
+    {
+      "name": "CPU-bound scaling 1→4 lanes ≥ 2×",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": false
+    },
+    {
+      "name": "CPU-bound 8 lanes give < 1.3× of 4 lanes on 4 cores (machine limit visible)",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": false
+    },
+    {
+      "name": "partition fairness (Jain) ≥ 0.95 at every point",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "global cap 8 respected",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "bad lane breaker opened",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "bad lane failures bounded (≤ threshold + concurrency in flight)",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "every other job completed with a verifying mark",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "failed runs were not resubmitted elsewhere (32 runs total)",
+      "expected": 32,
+      "observed": 32,
+      "pass": true,
+      "deterministic": true
+    },
+    {
+      "name": "bounded queue rejects excess with backpressure",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "cores": 4,
+    "cpuBound": [
+      {
+        "lanes": 1,
+        "jobs": 96,
+        "wallMs": 1487.888,
+        "throughputPerSec": 64.521,
+        "goodputPerSec": 64.521,
+        "p50Ms": 11.626,
+        "p95Ms": 21.474,
+        "p99Ms": 141.347,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 1,
+        "cpuUserMs": 2208.489,
+        "cpuSystemMs": 58.865,
+        "cpuUtilisation": 0.381,
+        "rssMb": 654.895,
+        "jain": 1,
+        "loadavg1": 0.62
+      },
+      {
+        "lanes": 2,
+        "jobs": 96,
+        "wallMs": 885.444,
+        "throughputPerSec": 108.42,
+        "goodputPerSec": 108.42,
+        "p50Ms": 16.861,
+        "p95Ms": 23.522,
+        "p99Ms": 25.036,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 2,
+        "cpuUserMs": 2234.471,
+        "cpuSystemMs": 18.881,
+        "cpuUtilisation": 0.636,
+        "rssMb": 661.27,
+        "jain": 1,
+        "loadavg1": 0.62
+      },
+      {
+        "lanes": 4,
+        "jobs": 96,
+        "wallMs": 606.704,
+        "throughputPerSec": 158.232,
+        "goodputPerSec": 158.232,
+        "p50Ms": 23.066,
+        "p95Ms": 45.086,
+        "p99Ms": 69.911,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 4,
+        "cpuUserMs": 2257.075,
+        "cpuSystemMs": 30.345,
+        "cpuUtilisation": 0.943,
+        "rssMb": 675.895,
+        "jain": 1,
+        "loadavg1": 0.62
+      },
+      {
+        "lanes": 8,
+        "jobs": 96,
+        "wallMs": 504.845,
+        "throughputPerSec": 190.157,
+        "goodputPerSec": 190.157,
+        "p50Ms": 36.376,
+        "p95Ms": 66.949,
+        "p99Ms": 81.406,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 8,
+        "cpuUserMs": 1916.85,
+        "cpuSystemMs": 34.919,
+        "cpuUtilisation": 0.967,
+        "rssMb": 703.02,
+        "jain": 1,
+        "loadavg1": 0.62
+      }
+    ],
+    "latencyBound": [
+      {
+        "lanes": 1,
+        "jobs": 96,
+        "wallMs": 2075.164,
+        "throughputPerSec": 46.261,
+        "goodputPerSec": 46.261,
+        "p50Ms": 20.664,
+        "p95Ms": 21.064,
+        "p99Ms": 22.87,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 1,
+        "cpuUserMs": 165.76,
+        "cpuSystemMs": 0.617,
+        "cpuUtilisation": 0.02,
+        "rssMb": 704.02,
+        "jain": 1,
+        "loadavg1": 0.62
+      },
+      {
+        "lanes": 2,
+        "jobs": 96,
+        "wallMs": 1037.543,
+        "throughputPerSec": 92.526,
+        "goodputPerSec": 92.526,
+        "p50Ms": 20.653,
+        "p95Ms": 22.141,
+        "p99Ms": 26.455,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 2,
+        "cpuUserMs": 112.303,
+        "cpuSystemMs": 3.278,
+        "cpuUtilisation": 0.028,
+        "rssMb": 705.145,
+        "jain": 1,
+        "loadavg1": 0.57
+      },
+      {
+        "lanes": 4,
+        "jobs": 96,
+        "wallMs": 514.418,
+        "throughputPerSec": 186.619,
+        "goodputPerSec": 186.619,
+        "p50Ms": 20.65,
+        "p95Ms": 21.79,
+        "p99Ms": 22.923,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 4,
+        "cpuUserMs": 82.986,
+        "cpuSystemMs": 2.755,
+        "cpuUtilisation": 0.042,
+        "rssMb": 706.02,
+        "jain": 1,
+        "loadavg1": 0.57
+      },
+      {
+        "lanes": 8,
+        "jobs": 96,
+        "wallMs": 264.689,
+        "throughputPerSec": 362.69,
+        "goodputPerSec": 362.69,
+        "p50Ms": 21.016,
+        "p95Ms": 23.002,
+        "p99Ms": 25.837,
+        "failures": 0,
+        "denied": 0,
+        "maxInFlightObserved": 8,
+        "cpuUserMs": 76.43,
+        "cpuSystemMs": 0,
+        "cpuUtilisation": 0.072,
+        "rssMb": 706.895,
+        "jain": 1,
+        "loadavg1": 0.57
+      }
+    ],
+    "speedup": {
+      "cpu": [
+        1,
+        1.68,
+        2.45,
+        2.95
+      ],
+      "io": [
+        1,
+        2,
+        4.03,
+        7.84
+      ]
+    },
+    "isolation": {
+      "completed": 29,
+      "failedOnBadLane": 3,
+      "maxInFlight": 8,
+      "perLane": {
+        "bad": {
+          "completed": 0,
+          "failures": 3,
+          "maxInFlight": 2
+        },
+        "g1": {
+          "completed": 11,
+          "failures": 0,
+          "maxInFlight": 3
+        },
+        "g2": {
+          "completed": 11,
+          "failures": 0,
+          "maxInFlight": 3
+        },
+        "g3": {
+          "completed": 7,
+          "failures": 0,
+          "maxInFlight": 2
+        }
+      }
+    },
+    "capacity": {
+      "formula": "R ≤ Σ_g min(Q_g/T_g, Σ_i∈g min(r_i, c_i/L_i))",
+      "lanes": [
+        {
+          "laneId": "g1",
+          "quotaKey": "awrm-local:local-a",
+          "concurrency": 3,
+          "rate": null,
+          "meanOccupiedMs": 12.052792454545687,
+          "boundPerSec": 248.9049746200978
+        },
+        {
+          "laneId": "g2",
+          "quotaKey": "awrm-local:local-b",
+          "concurrency": 3,
+          "rate": null,
+          "meanOccupiedMs": 12.1179816363636,
+          "boundPerSec": 247.565980047173
+        },
+        {
+          "laneId": "g3",
+          "quotaKey": "awrm-local:local-owner",
+          "concurrency": 3,
+          "rate": null,
+          "meanOccupiedMs": 12.832465142857473,
+          "boundPerSec": 233.78204940379632
+        },
+        {
+          "laneId": "bad",
+          "quotaKey": "awrm-local:local-owner",
+          "concurrency": 3,
+          "rate": null,
+          "meanOccupiedMs": null,
+          "boundPerSec": "unknown"
+        }
+      ],
+      "groups": [
+        {
+          "quotaKey": "awrm-local:local-a",
+          "lanes": [
+            "g1"
+          ],
+          "allowancePerSec": "not-applicable",
+          "boundPerSec": 248.9049746200978
+        },
+        {
+          "quotaKey": "awrm-local:local-b",
+          "lanes": [
+            "g2"
+          ],
+          "allowancePerSec": "not-applicable",
+          "boundPerSec": 247.565980047173
+        },
+        {
+          "quotaKey": "awrm-local:local-owner",
+          "lanes": [
+            "g3",
+            "bad"
+          ],
+          "allowancePerSec": "not-applicable",
+          "boundPerSec": "unknown"
+        }
+      ],
+      "fleetBoundPerSec": "unknown",
+      "globalCap": 8,
+      "note": "Engineering upper bound under simplified assumptions; unknown terms are reported, never assumed infinite."
+    }
+  },
+  "marks": [],
+  "blocked": [],
+  "counterexamples": [],
+  "notes": [],
+  "deterministicDigest": "sha256:5a98e86b5eb125dc2ea20f5b4a5404db1b04cfeba614d7e1cf1f7de2e2e2786f"
+}

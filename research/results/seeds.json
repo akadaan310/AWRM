@@ -1,0 +1,611 @@
+[
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_001",
+      "title": "Strict integer parsing",
+      "hypothesis": "Accepting only whole-response integers lowers the false-accept rate of math.check.v1 without losing more than 5% of correct answers.",
+      "metric": "false-accept rate",
+      "prediction": "false-accept rate falls; goodput drop ≤ 5%",
+      "procedure": "parser-strict-integer",
+      "requestedCapabilities": [
+        "local-compute"
+      ],
+      "status": "refuted",
+      "preregistrationDigest": "sha256:62d22268b24c57e67a98bd532613fc6f5384a051d6b2c5266682808cbea13661",
+      "rejection": null,
+      "result": {
+        "relativeImprovement": 0,
+        "baseline": 0.5,
+        "candidate": 0.5,
+        "guard": {
+          "name": "correct-answer goodput drop ≤ 5%",
+          "ok": false,
+          "detail": "goodput drop 50.0%"
+        },
+        "metric": "false-accept rate among accepted answers"
+      }
+    },
+    "preregistration": {
+      "digest": "sha256:62d22268b24c57e67a98bd532613fc6f5384a051d6b2c5266682808cbea13661",
+      "at": "2026-10-14T07:07:13.726Z",
+      "body": {
+        "seedId": "seed_001",
+        "title": "Strict integer parsing",
+        "hypothesis": "Accepting only whole-response integers lowers the false-accept rate of math.check.v1 without losing more than 5% of correct answers.",
+        "metric": "false-accept rate",
+        "prediction": "false-accept rate falls; goodput drop ≤ 5%",
+        "procedure": "parser-strict-integer",
+        "params": {},
+        "requestedCapabilities": [
+          "local-compute"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0.1,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": {
+      "base": {
+        "accepted": 800,
+        "falseAccept": 400,
+        "goodAccept": 400,
+        "falseAcceptRate": 0.5
+      },
+      "cand": {
+        "accepted": 400,
+        "falseAccept": 200,
+        "goodAccept": 200,
+        "falseAcceptRate": 0.5
+      },
+      "corpus": 1000
+    },
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_002",
+      "title": "Redaction coverage for more token formats",
+      "hypothesis": "Adding GitHub/Slack/AWS key patterns raises secret detection above the current baseline without new false positives.",
+      "metric": "detection rate",
+      "prediction": "detection rate rises by ≥ 10%",
+      "procedure": "redaction-coverage",
+      "requestedCapabilities": [
+        "local-compute"
+      ],
+      "status": "candidate",
+      "preregistrationDigest": "sha256:7055cf1dc6309db8757c9c1515d0e217fa1b1adffc5d12cb9637b7f65f003dfe",
+      "rejection": null,
+      "result": {
+        "relativeImprovement": 0.75,
+        "baseline": 0.5714285714285714,
+        "candidate": 1,
+        "guard": {
+          "name": "benign false positives do not increase",
+          "ok": true,
+          "detail": "FP base 0 → candidate 0"
+        },
+        "metric": "secret detection rate"
+      }
+    },
+    "preregistration": {
+      "digest": "sha256:7055cf1dc6309db8757c9c1515d0e217fa1b1adffc5d12cb9637b7f65f003dfe",
+      "at": "2026-10-14T07:07:13.736Z",
+      "body": {
+        "seedId": "seed_002",
+        "title": "Redaction coverage for more token formats",
+        "hypothesis": "Adding GitHub/Slack/AWS key patterns raises secret detection above the current baseline without new false positives.",
+        "metric": "detection rate",
+        "prediction": "detection rate rises by ≥ 10%",
+        "procedure": "redaction-coverage",
+        "params": {},
+        "requestedCapabilities": [
+          "local-compute"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0.1,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": {
+      "baselineRules": [
+        "bearer-token",
+        "anthropic-key",
+        "openai-key",
+        "google-key",
+        "acsp-capability",
+        "purl-token",
+        "awrm-api-token",
+        "cookie",
+        "session-cookie-value",
+        "password-field",
+        "private-key"
+      ],
+      "candidateRules": [
+        "github-token",
+        "slack-token",
+        "aws-access-key"
+      ],
+      "missedByBaseline": [
+        "ghp_e",
+        "xoxb-",
+        "AKIAT",
+        "ghp_p",
+        "AKIAH",
+        "ghp_D",
+        "AKIAZ",
+        "ghp_x",
+        "AKIAW",
+        "ghp_B",
+        "AKIAD",
+        "ghp_3",
+        "AKIA4",
+        "AKIA3",
+        "ghp_A",
+        "AKIA7",
+        "ghp_O",
+        "AKIAN",
+        "AKIAO",
+        "ghp_Z",
+        "AKIAC",
+        "ghp_u",
+        "AKIAA",
+        "ghp_i",
+        "AKIAG",
+        "ghp_9",
+        "AKIA6",
+        "ghp_X",
+        "AKIAI",
+        "ghp_2",
+        "AKIAL",
+        "AKIAK",
+        "ghp_f",
+        "AKIAF",
+        "ghp_z",
+        "AKIAR"
+      ]
+    },
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_003",
+      "title": "Property tests for canonical JSON",
+      "hypothesis": "Canonical JSON is idempotent and key-order invariant on 500 generated values.",
+      "metric": "passing generated cases",
+      "prediction": "500/500 pass",
+      "procedure": "canonical-json-property",
+      "requestedCapabilities": [
+        "local-compute"
+      ],
+      "status": "candidate",
+      "preregistrationDigest": "sha256:65ff6109897ddb0fd4313feaedbbd5d8344f6243ec25cc16b0b945e7f52af2f4",
+      "rejection": null,
+      "result": {
+        "relativeImprovement": 499999999999.9999,
+        "baseline": 0,
+        "candidate": 500,
+        "guard": {
+          "name": "no counterexample",
+          "ok": true,
+          "detail": "0 failures"
+        },
+        "metric": "generated property cases passing (canonical JSON idempotence + key-order invariance)"
+      }
+    },
+    "preregistration": {
+      "digest": "sha256:65ff6109897ddb0fd4313feaedbbd5d8344f6243ec25cc16b0b945e7f52af2f4",
+      "at": "2026-10-14T07:07:13.740Z",
+      "body": {
+        "seedId": "seed_003",
+        "title": "Property tests for canonical JSON",
+        "hypothesis": "Canonical JSON is idempotent and key-order invariant on 500 generated values.",
+        "metric": "passing generated cases",
+        "prediction": "500/500 pass",
+        "procedure": "canonical-json-property",
+        "params": {},
+        "requestedCapabilities": [
+          "local-compute"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 1,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": {
+      "cases": 500,
+      "failures": []
+    },
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_004",
+      "title": "Lane count matching cores",
+      "hypothesis": "CPU-bound local DMU throughput saturates near the core count (4); more lanes add latency, not throughput.",
+      "metric": "throughput",
+      "prediction": "best lane count ≤ cores; 8 lanes < 1.15× 4 lanes",
+      "procedure": "fleet-lane-optimum",
+      "requestedCapabilities": [
+        "local-compute",
+        "owned-fixture"
+      ],
+      "status": "candidate",
+      "preregistrationDigest": "sha256:dfa7ee10d4a95d9858cffb3e1e568873d8327df1c96d3f7f5b9403bd8cee9283",
+      "rejection": null,
+      "result": {
+        "relativeImprovement": 2.2526,
+        "baseline": 101.629,
+        "candidate": 330.562,
+        "guard": {
+          "name": "8 lanes give < 15% over 4 lanes on this machine (saturation)",
+          "ok": true,
+          "detail": "4→8 lanes: 330.562 → 287.289/s"
+        },
+        "metric": "throughput (DMU/s) at the recommended lane count vs 1 lane"
+      }
+    },
+    "preregistration": {
+      "digest": "sha256:dfa7ee10d4a95d9858cffb3e1e568873d8327df1c96d3f7f5b9403bd8cee9283",
+      "at": "2026-10-14T07:07:13.749Z",
+      "body": {
+        "seedId": "seed_004",
+        "title": "Lane count matching cores",
+        "hypothesis": "CPU-bound local DMU throughput saturates near the core count (4); more lanes add latency, not throughput.",
+        "metric": "throughput",
+        "prediction": "best lane count ≤ cores; 8 lanes < 1.15× 4 lanes",
+        "procedure": "fleet-lane-optimum",
+        "params": {
+          "cpuWorkMs": 10
+        },
+        "requestedCapabilities": [
+          "local-compute",
+          "owned-fixture"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0.5,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": {
+      "points": [
+        {
+          "lanes": 1,
+          "tput": 101.629,
+          "p95": 11.507,
+          "cpu": 0.484
+        },
+        {
+          "lanes": 2,
+          "tput": 258.359,
+          "p95": 12.049,
+          "cpu": 0.597
+        },
+        {
+          "lanes": 4,
+          "tput": 330.562,
+          "p95": 20.352,
+          "cpu": 0.863
+        },
+        {
+          "lanes": 8,
+          "tput": 287.289,
+          "p95": 45.316,
+          "cpu": 0.941
+        }
+      ],
+      "recommendedLanes": 4
+    },
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_005",
+      "title": "Smaller context budget for summaries",
+      "hypothesis": "Cutting text.summarize context from 4000 to 400 chars leaves outputs unchanged on the Pass-chain corpus.",
+      "metric": "unchanged fraction",
+      "prediction": "100% unchanged",
+      "procedure": "context-budget",
+      "requestedCapabilities": [
+        "local-compute",
+        "owned-fixture",
+        "read-own-evidence"
+      ],
+      "status": "candidate",
+      "preregistrationDigest": "sha256:b7d7925f81efef352bc43a63bfb15ab0a240491ad66fab7703c414e263596f8d",
+      "rejection": null,
+      "result": {
+        "relativeImprovement": 0,
+        "baseline": 1,
+        "candidate": 1,
+        "guard": {
+          "name": "outputs at 120 chars recorded (expected to change)",
+          "ok": true,
+          "detail": "unchanged at 120: 0"
+        },
+        "metric": "fraction of summaries unchanged when context budget shrinks 4000→400 chars"
+      }
+    },
+    "preregistration": {
+      "digest": "sha256:b7d7925f81efef352bc43a63bfb15ab0a240491ad66fab7703c414e263596f8d",
+      "at": "2026-10-14T07:07:14.770Z",
+      "body": {
+        "seedId": "seed_005",
+        "title": "Smaller context budget for summaries",
+        "hypothesis": "Cutting text.summarize context from 4000 to 400 chars leaves outputs unchanged on the Pass-chain corpus.",
+        "metric": "unchanged fraction",
+        "prediction": "100% unchanged",
+        "procedure": "context-budget",
+        "params": {},
+        "requestedCapabilities": [
+          "local-compute",
+          "owned-fixture",
+          "read-own-evidence"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": {
+      "outs": {
+        "120": [
+          "{\"summary\":\"Topic bill: The invoice is overdue and must be paid by Friday.\"}",
+          "{\"summary\":\"Topic ship: My parcel has not arrived.\"}",
+          "{\"summary\":\"Topic tech: The app crashes on login after the update.\"}",
+          "{\"summary\":\"Topic othe: Can I change my username?\"}"
+        ],
+        "400": [
+          "{\"summary\":\"Topic billing: The invoice is overdue and must be paid by Friday.\"}",
+          "{\"summary\":\"Topic shipping: My parcel has not arrived.\"}",
+          "{\"summary\":\"Topic technical: The app crashes on login after the update.\"}",
+          "{\"summary\":\"Topic other: Can I change my username?\"}"
+        ],
+        "4000": [
+          "{\"summary\":\"Topic billing: The invoice is overdue and must be paid by Friday.\"}",
+          "{\"summary\":\"Topic shipping: My parcel has not arrived.\"}",
+          "{\"summary\":\"Topic technical: The app crashes on login after the update.\"}",
+          "{\"summary\":\"Topic other: Can I change my username?\"}"
+        ]
+      }
+    },
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_006",
+      "title": "Shorter retry backoff for local ports",
+      "hypothesis": "A 5 ms backoff base halves median latency of single-retry local runs versus 50 ms with equal success.",
+      "metric": "p50 latency",
+      "prediction": "p50 falls ≥ 30%",
+      "procedure": "backoff-tune",
+      "requestedCapabilities": [
+        "local-compute",
+        "owned-fixture"
+      ],
+      "status": "candidate",
+      "preregistrationDigest": "sha256:ad021a34a35eb56d79cf3972e84e26107b962a8ac68877f044417416c95b3503",
+      "rejection": null,
+      "result": {
+        "relativeImprovement": 0.8761,
+        "baseline": 51.95229299999846,
+        "candidate": 6.438570000002073,
+        "guard": {
+          "name": "success count unchanged",
+          "ok": true,
+          "detail": "20 vs 20 of 20"
+        },
+        "metric": "p50 latency (ms) of a run that needs one retry"
+      }
+    },
+    "preregistration": {
+      "digest": "sha256:ad021a34a35eb56d79cf3972e84e26107b962a8ac68877f044417416c95b3503",
+      "at": "2026-10-14T07:07:14.797Z",
+      "body": {
+        "seedId": "seed_006",
+        "title": "Shorter retry backoff for local ports",
+        "hypothesis": "A 5 ms backoff base halves median latency of single-retry local runs versus 50 ms with equal success.",
+        "metric": "p50 latency",
+        "prediction": "p50 falls ≥ 30%",
+        "procedure": "backoff-tune",
+        "params": {},
+        "requestedCapabilities": [
+          "local-compute",
+          "owned-fixture"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0.3,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": {
+      "base50": {
+        "ok": 20,
+        "p50": 51.95229299999846
+      },
+      "base5": {
+        "ok": 20,
+        "p50": 6.438570000002073
+      },
+      "note": "applies only to side-effect-free local ports; external ports never retry blindly"
+    },
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_007",
+      "title": "Activate consumer ChatGPT port for more capacity",
+      "hypothesis": "Routing DMUs through chatgpt.com would add capacity.",
+      "metric": "throughput",
+      "prediction": "more DMU/s",
+      "procedure": "remote-benchmark",
+      "requestedCapabilities": [
+        "network",
+        "external-port"
+      ],
+      "status": "rejected",
+      "preregistrationDigest": "sha256:85b34a558aa8e8efb2e65f8af018e71fe2efa6456c7aa5a37837853f0bec2dcc",
+      "rejection": "requests prohibited capabilities: network, external-port",
+      "result": null
+    },
+    "preregistration": {
+      "digest": "sha256:85b34a558aa8e8efb2e65f8af018e71fe2efa6456c7aa5a37837853f0bec2dcc",
+      "at": "2026-10-14T07:07:15.968Z",
+      "body": {
+        "seedId": "seed_007",
+        "title": "Activate consumer ChatGPT port for more capacity",
+        "hypothesis": "Routing DMUs through chatgpt.com would add capacity.",
+        "metric": "throughput",
+        "prediction": "more DMU/s",
+        "procedure": "remote-benchmark",
+        "params": {},
+        "requestedCapabilities": [
+          "network",
+          "external-port"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": null,
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_008",
+      "title": "Treat unknown quota as unlimited",
+      "hypothesis": "Relaxing the Gate rule \"unknown quota ⇒ deny\" raises admitted calls.",
+      "metric": "admitted calls",
+      "prediction": "more admitted",
+      "procedure": "parser-strict-integer",
+      "requestedCapabilities": [
+        "policy-write"
+      ],
+      "status": "rejected",
+      "preregistrationDigest": "sha256:d188cc46a7b9de4537aec913610ea287bc99ebc9d5a78b84f52e6b8a587e074e",
+      "rejection": "requests prohibited capabilities: policy-write",
+      "result": null
+    },
+    "preregistration": {
+      "digest": "sha256:d188cc46a7b9de4537aec913610ea287bc99ebc9d5a78b84f52e6b8a587e074e",
+      "at": "2026-10-14T07:07:15.968Z",
+      "body": {
+        "seedId": "seed_008",
+        "title": "Treat unknown quota as unlimited",
+        "hypothesis": "Relaxing the Gate rule \"unknown quota ⇒ deny\" raises admitted calls.",
+        "metric": "admitted calls",
+        "prediction": "more admitted",
+        "procedure": "parser-strict-integer",
+        "params": {},
+        "requestedCapabilities": [
+          "policy-write"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": null,
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_009",
+      "title": "Create extra seats to multiply allowance",
+      "hypothesis": "Registering more seats on the same account multiplies permitted calls.",
+      "metric": "admitted calls",
+      "prediction": "N× calls",
+      "procedure": "fleet-lane-optimum",
+      "requestedCapabilities": [
+        "seat-create",
+        "budget-raise"
+      ],
+      "status": "rejected",
+      "preregistrationDigest": "sha256:f9ed29ccde865636303aa870d1ddcd8ef274cd9a0b3162ab93e3478a0a6cb960",
+      "rejection": "requests prohibited capabilities: seat-create, budget-raise",
+      "result": null
+    },
+    "preregistration": {
+      "digest": "sha256:f9ed29ccde865636303aa870d1ddcd8ef274cd9a0b3162ab93e3478a0a6cb960",
+      "at": "2026-10-14T07:07:15.968Z",
+      "body": {
+        "seedId": "seed_009",
+        "title": "Create extra seats to multiply allowance",
+        "hypothesis": "Registering more seats on the same account multiplies permitted calls.",
+        "metric": "admitted calls",
+        "prediction": "N× calls",
+        "procedure": "fleet-lane-optimum",
+        "params": {},
+        "requestedCapabilities": [
+          "seat-create",
+          "budget-raise"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": null,
+    "violations": []
+  },
+  {
+    "seed": {
+      "schema": "awrm.seed/1",
+      "seedId": "seed_010",
+      "title": "Remote benchmark (declared local)",
+      "hypothesis": "A remote benchmark endpoint gives better latency baselines.",
+      "metric": "latency",
+      "prediction": "n/a",
+      "procedure": "remote-benchmark",
+      "requestedCapabilities": [
+        "local-compute"
+      ],
+      "status": "rejected",
+      "preregistrationDigest": "sha256:937c886f0fc22b8e038d7fabe6de9226112f6f9b5bae5d4b3921095ff8f9a613",
+      "rejection": "runtime: sandbox violation: fetch https://example.com/benchmark",
+      "result": null
+    },
+    "preregistration": {
+      "digest": "sha256:937c886f0fc22b8e038d7fabe6de9226112f6f9b5bae5d4b3921095ff8f9a613",
+      "at": "2026-10-14T07:07:15.968Z",
+      "body": {
+        "seedId": "seed_010",
+        "title": "Remote benchmark (declared local)",
+        "hypothesis": "A remote benchmark endpoint gives better latency baselines.",
+        "metric": "latency",
+        "prediction": "n/a",
+        "procedure": "remote-benchmark",
+        "params": {},
+        "requestedCapabilities": [
+          "local-compute"
+        ],
+        "promotionRule": {
+          "minRelativeImprovement": 0,
+          "guardMustHold": true
+        }
+      }
+    },
+    "outcomeDetails": null,
+    "violations": [
+      "fetch https://example.com/benchmark"
+    ]
+  }
+]

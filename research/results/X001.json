@@ -1,0 +1,61 @@
+{
+  "schema": "awrm.experiment-result/1",
+  "id": "X001",
+  "title": "Negative control: \"N views ⇒ N× allowance\" (expected REFUTED)",
+  "hypotheses": [
+    "naive-H5-complement"
+  ],
+  "verdict": "REFUTED",
+  "verdictReason": "as intended: 4 views of one account admitted 3, not 12; counterexample preserved",
+  "command": "awrm experiments run X001",
+  "startedAt": "2026-10-14T07:07:16.125Z",
+  "endedAt": "2026-10-14T07:07:16.129Z",
+  "durationMs": 5,
+  "environment": {
+    "node": "v22.22.0",
+    "platform": "linux 6.18.44-fc-v114",
+    "cpus": 4,
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memMb": 16093,
+    "commit": "4c98ca3e50130386dc24fee2ff1fa308193ad28a"
+  },
+  "checks": [
+    {
+      "name": "naive prediction: 12 admitted calls",
+      "expected": 12,
+      "observed": 3,
+      "pass": false,
+      "deterministic": true
+    }
+  ],
+  "metrics": {
+    "admitted": 3,
+    "predicted": 12
+  },
+  "marks": [],
+  "blocked": [],
+  "counterexamples": [
+    {
+      "views": 4,
+      "allowancePerAccount": 3,
+      "predictedAdmitted": 12,
+      "observedAdmitted": 3,
+      "trace": [
+        "view-0:completed",
+        "view-1:completed",
+        "view-2:completed",
+        "view-3:denied(quota-exhausted)",
+        "view-0:denied(quota-exhausted)",
+        "view-1:denied(quota-exhausted)",
+        "view-2:denied(quota-exhausted)",
+        "view-3:denied(quota-exhausted)",
+        "view-0:denied(quota-exhausted)",
+        "view-1:denied(quota-exhausted)",
+        "view-2:denied(quota-exhausted)",
+        "view-3:denied(quota-exhausted)"
+      ]
+    }
+  ],
+  "notes": [],
+  "deterministicDigest": "sha256:882fedfa917399c9397021e48b6ce9f5a51d15b8f4f408ab91f25aa5116fb5d6"
+}

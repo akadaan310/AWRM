@@ -17,6 +17,7 @@ export const E006 = () =>
     const resA = await Promise.allSettled(Array.from({ length: 12 }, (_, i) => fleetA.submit({ dmuId: 'math.check.v1', input: { question: `What is ${i} × 2?` } })));
     const runsA = resA.flatMap((x) => (x.status === 'fulfilled' ? [x.value] : []));
     const completedA = runsA.filter((x) => x.state === 'completed').length;
+    r.mark(...runsA.map((x) => x.markDigest));
     const deniedA = runsA.filter((x) => x.state === 'denied').length;
     r.check('case A: exactly 3 calls admitted for 4 views of one account', completedA, 3);
     r.check('case A: the rest denied or not dispatched (never rerouted)', completedA + deniedA + resA.filter((x) => x.status === 'rejected').length, 12);
@@ -45,6 +46,7 @@ export const E006 = () =>
       for (let i = 0; i < 5; i++) {
         const run = await kernel.run({ dmuId: 'math.check.v1', input: { question: `What is ${i} + 4?` }, seatId: 'rl-seat', portId: 'rl-http' });
         states.push(`${run.state}:${run.error?.code ?? run.gate?.code ?? ''}`);
+        r.mark(run.markDigest);
       }
       r.check('case C: 2 complete, then 429 recorded, then hard stop (denied: rate-limited)', states, ['completed:permit', 'completed:permit', 'failed:rate-limited', 'denied:gate-denied', 'denied:gate-denied']);
       r.check('case C: fixture saw exactly one 429 (no hammering after the signal)', fixture.stats.rateLimited, 1);

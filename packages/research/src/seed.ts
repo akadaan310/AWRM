@@ -141,13 +141,13 @@ export async function executeSeed(p: SeedProposal, seedId: string, at: string): 
     return { seed: { ...record, status: 'rejected', rejection: `runtime: ${(e as Error).message}` }, preregistration, outcome: null, violations };
   }
   if (violations.length) return { seed: { ...record, status: 'rejected', rejection: `runtime violations: ${violations.join('; ')}` }, preregistration, outcome: null, violations };
-  const rel = outcome.higherIsBetter
-    ? (outcome.candidate - outcome.baseline) / Math.max(Math.abs(outcome.baseline), 1e-9)
-    : (outcome.baseline - outcome.candidate) / Math.max(Math.abs(outcome.baseline), 1e-9);
-  const improved = p.minRelativeImprovement === 0 ? outcome.candidate >= outcome.baseline - 1e-12 || rel >= 0 : rel >= p.minRelativeImprovement;
+  const delta = outcome.higherIsBetter ? outcome.candidate - outcome.baseline : outcome.baseline - outcome.candidate;
+  // Relative change is undefined against a zero baseline; report the absolute gain instead.
+  const rel = outcome.baseline === 0 ? null : delta / Math.abs(outcome.baseline);
+  const improved = rel === null ? delta > 0 : p.minRelativeImprovement === 0 ? delta >= -1e-12 : rel >= p.minRelativeImprovement;
   const status: SeedRecord['status'] = improved && outcome.guard.ok ? 'candidate' : 'refuted';
   return {
-    seed: { ...record, status, result: { relativeImprovement: Number(rel.toFixed(4)), baseline: outcome.baseline, candidate: outcome.candidate, guard: outcome.guard, metric: outcome.metric } },
+    seed: { ...record, status, result: { relativeImprovement: rel === null ? null : Number(rel.toFixed(4)), absoluteChange: Number(delta.toFixed(6)), baseline: outcome.baseline, candidate: outcome.candidate, guard: outcome.guard, metric: outcome.metric } },
     preregistration,
     outcome,
     violations,
