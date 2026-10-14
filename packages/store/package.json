@@ -1,0 +1,13 @@
+{
+  "name": "@awrm/store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Repository boundary: memory, JSONL journal and node:sqlite backends.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*"
+  }
+}

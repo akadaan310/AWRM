@@ -1,0 +1,28 @@
+{
+  "name": "@awrm/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The awrm command.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/store": "workspace:*",
+    "@awrm/policy": "workspace:*",
+    "@awrm/identity": "workspace:*",
+    "@awrm/evidence": "workspace:*",
+    "@awrm/ports": "workspace:*",
+    "@awrm/continuity": "workspace:*",
+    "@awrm/runtime": "workspace:*",
+    "@awrm/scheduler": "workspace:*",
+    "@awrm/plans": "workspace:*",
+    "@awrm/interop": "workspace:*",
+    "@awrm/fixtures": "workspace:*",
+    "@awrm/api": "workspace:*",
+    "@awrm/research": "workspace:*",
+    "@awrm/port-onnx": "workspace:*",
+    "@awrm/browser-port": "workspace:*"
+  }
+}

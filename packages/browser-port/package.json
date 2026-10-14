@@ -1,0 +1,17 @@
+{
+  "name": "@awrm/browser-port",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "OPTIONAL approved-browser port (Playwright) restricted to allowlisted owned origins.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/ports": "workspace:*"
+  },
+  "optionalDependencies": {
+    "playwright-core": "1.56.1"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@awrm/ports",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Port interface plus local, owned-fixture and official-API ports.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*"
+  }
+}

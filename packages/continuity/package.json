@@ -1,0 +1,15 @@
+{
+  "name": "@awrm/continuity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Keep and Pass: explicit, source-attributed continuity.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/evidence": "workspace:*",
+    "@awrm/store": "workspace:*"
+  }
+}

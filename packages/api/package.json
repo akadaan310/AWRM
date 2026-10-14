@@ -1,0 +1,23 @@
+{
+  "name": "@awrm/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Loopback-only authenticated HTTP API and TypeScript SDK.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/store": "workspace:*",
+    "@awrm/policy": "workspace:*",
+    "@awrm/identity": "workspace:*",
+    "@awrm/evidence": "workspace:*",
+    "@awrm/ports": "workspace:*",
+    "@awrm/continuity": "workspace:*",
+    "@awrm/runtime": "workspace:*",
+    "@awrm/scheduler": "workspace:*",
+    "@awrm/plans": "workspace:*",
+    "@awrm/interop": "workspace:*"
+  }
+}

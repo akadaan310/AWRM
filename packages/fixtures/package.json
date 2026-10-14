@@ -1,0 +1,14 @@
+{
+  "name": "@awrm/fixtures",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Owned test fixtures: controlled chat web app with test login + SSE, hostile content.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/ports": "workspace:*"
+  }
+}

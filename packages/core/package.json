@@ -1,0 +1,11 @@
+{
+  "name": "@awrm/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure kernel types: canonical JSON, schemas, Forms, DMU definitions, lexicon.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {}
+}

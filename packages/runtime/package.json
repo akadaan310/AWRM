@@ -1,0 +1,19 @@
+{
+  "name": "@awrm/runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Kernel: DMU executor, Turn state machine, idempotency, cancellation, recovery.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/store": "workspace:*",
+    "@awrm/policy": "workspace:*",
+    "@awrm/identity": "workspace:*",
+    "@awrm/evidence": "workspace:*",
+    "@awrm/ports": "workspace:*",
+    "@awrm/continuity": "workspace:*"
+  }
+}

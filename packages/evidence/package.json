@@ -1,0 +1,13 @@
+{
+  "name": "@awrm/evidence",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Content-addressed Marks, redaction and verification.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*"
+  }
+}

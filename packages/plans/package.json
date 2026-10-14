@@ -1,0 +1,14 @@
+{
+  "name": "@awrm/plans",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bonds and typed DAG plans.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/runtime": "workspace:*"
+  }
+}

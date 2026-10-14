@@ -1,0 +1,16 @@
+{
+  "name": "@awrm/scheduler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fleet: admission control, fair queueing, circuit breakers, capacity accounting.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/runtime": "workspace:*",
+    "@awrm/policy": "workspace:*",
+    "@awrm/ports": "workspace:*"
+  }
+}

@@ -1,0 +1,4 @@
+packages:
+  - "packages/*"
+# Native build scripts are not run (pnpm default). onnxruntime-node ships its
+# CPU binary inside the tarball; its postinstall only fetches optional GPU builds.

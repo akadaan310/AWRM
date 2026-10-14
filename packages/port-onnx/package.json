@@ -1,0 +1,17 @@
+{
+  "name": "@awrm/port-onnx",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "OPTIONAL real open-weight local model port (transformers.js / ONNX Runtime, CPU).",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/ports": "workspace:*"
+  },
+  "optionalDependencies": {
+    "@huggingface/transformers": "4.3.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@awrm/identity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Seats and secret-free vault handles.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/evidence": "workspace:*"
+  }
+}

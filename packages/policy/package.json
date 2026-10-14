@@ -1,0 +1,13 @@
+{
+  "name": "@awrm/policy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Gate (pure permission decision) and budget/quota ledger.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*"
+  }
+}

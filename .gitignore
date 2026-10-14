@@ -1,0 +1,7 @@
+node_modules/
+.awrm/
+.awrm-*/
+*.log
+.cache/
+coverage/
+research/results/tmp/

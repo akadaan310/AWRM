@@ -1,0 +1,51 @@
+{
+  "name": "awrm",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AWRM \u2014 Account/Web Reasoning Morphogenesis: a surface-agnostic engine for Dark Matter Units (typed, gated, evidenced prompt/response computations).",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "bin": {
+    "awrm": "./bin/awrm.mjs"
+  },
+  "scripts": {
+    "awrm": "node bin/awrm.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test --test-concurrency=1 \"tests/**/*.test.ts\"",
+    "test:core": "node --import tsx --test \"tests/core/*.test.ts\" \"tests/security/*.test.ts\" \"tests/property/*.test.ts\"",
+    "test:coverage": "node --import tsx --test --experimental-test-coverage --test-concurrency=1 \"tests/**/*.test.ts\"",
+    "audit:self": "node bin/awrm.mjs audit",
+    "experiments": "node bin/awrm.mjs experiments run --all",
+    "ci": "pnpm typecheck && pnpm test && pnpm audit:self"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@awrm/core": "workspace:*",
+    "@awrm/store": "workspace:*",
+    "@awrm/policy": "workspace:*",
+    "@awrm/identity": "workspace:*",
+    "@awrm/evidence": "workspace:*",
+    "@awrm/ports": "workspace:*",
+    "@awrm/continuity": "workspace:*",
+    "@awrm/runtime": "workspace:*",
+    "@awrm/scheduler": "workspace:*",
+    "@awrm/plans": "workspace:*",
+    "@awrm/interop": "workspace:*",
+    "@awrm/fixtures": "workspace:*",
+    "@awrm/port-onnx": "workspace:*",
+    "@awrm/browser-port": "workspace:*",
+    "@awrm/api": "workspace:*",
+    "@awrm/research": "workspace:*",
+    "@awrm/cli": "workspace:*"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": []
+  }
+}
