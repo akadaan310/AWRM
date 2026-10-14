@@ -84,11 +84,11 @@ export const CHAIN = () =>
     r.check('replay after restart: Keeps verify', a.replay.keeps.ok, true);
     r.check('replay after restart: Keep content intact', a.replay.keepContent, { label: 'billing' });
     r.check('replay after restart: Pass intact', a.replay.passIntact, true);
-    r.check('replay: same Mark set as at checkpoint', a.replay.markSet, a.checkpoint.marks);
+    r.check('replay: same Mark set as at checkpoint', digest(a.replay.markSet) === digest(a.checkpoint.marks), true);
     r.check('nothing pending after restart', a.recov, { requeued: [], ambiguous: [], pendingQueued: [] });
     r.check('two real-clock runs: identical structural fingerprint (verdicts + content digests)', digest(a.fingerprint), digest(b.fingerprint));
     r.check('two real-clock runs: Mark digests differ (timestamps/ids are genuinely variable)', digest(a.markDigests) === digest(b.markDigests), false, { deterministic: false });
-    r.check('two deterministic-mode runs: Mark digests byte-identical', d1.markDigests, d2.markDigests);
+    r.check('two deterministic-mode runs: Mark digests byte-identical', digest(d1.markDigests), digest(d2.markDigests));
     r.mark(...a.markDigests);
     r.metrics = { summary, fingerprint: a.fingerprint, deterministicMarkSetDigest: digest(d1.markDigests), marksPerRun: a.markDigests.length };
     r.notes.push('Real-clock Marks embed wall-clock timestamps, run ids and measured latency, so their digests legitimately differ between runs; content digests and verdicts do not.');

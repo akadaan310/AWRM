@@ -43,8 +43,8 @@ export const E011 = () =>
       const pre = { a: kernel.getRun(info.a).state, b: kernel.getRun(info.b).state };
       r.check('both long runs were mid-flight (running) at crash', [pre.a, pre.b], ['running', 'running']);
       const report = kernel.recover();
-      r.check('side-effect-free run requeued', report.requeued, [info.a]);
-      r.check('unknown-side-effect run failed as ambiguous, not re-sent', report.ambiguous, [info.b]);
+      r.check('side-effect-free run requeued', JSON.stringify(report.requeued) === JSON.stringify([info.a]), true);
+      r.check('unknown-side-effect run failed as ambiguous, not re-sent', JSON.stringify(report.ambiguous) === JSON.stringify([info.b]), true);
       const a = await kernel.execute(info.a);
       r.check('requeued run completes on a new attempt', [a.state, a.output, a.turns.length], ['completed', { answer: 42 }, 2]);
       const t1 = kernel.getTurn(a.turns[0]!)!;
